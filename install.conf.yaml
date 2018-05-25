@@ -4,8 +4,13 @@
       relink: true
 
 - link:
-    ~/.i3blocks.conf: i3blocks.conf
+    ~/.config/compton/compton.conf: compton/compton.conf
+    ~/.config/dunst/dunstrc: dunst/dunstrc
+    ~/.config/i3/config: i3/config
+    ~/.config/i3/bin/lock.sh: i3/bin/lock.sh
+    ~/.config/i3/bin/logout.sh: i3/bin/logout.sh
     ~/.dotfiles: ''
+    ~/.i3blocks.conf: i3blocks.conf
     ~/.vimrc: vimrc
     ~/.vimrc_background: vimrc_background
     ~/.Xresources: Xresources

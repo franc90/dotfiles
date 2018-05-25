@@ -4,8 +4,8 @@ set $mod Mod4
 
 set $term --no-startup-id rxvt-unicode
 set $shutdown shutdown -h now
-set $lock ~/.config/i3/scripts/lock.sh
-set $logout ~/.config/i3/scripts/logout.sh
+set $lock ~/.config/i3/bin/lock.sh
+set $logout ~/.config/i3/bin/logout.sh
 
 set $ws1    "1"
 set $ws2    "2"
