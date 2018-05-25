@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- link:
+    ~/.i3blocks.conf: i3blocks.conf
+    ~/.dotfiles: ''
+    ~/.vimrc: vimrc
+    ~/.vimrc_background: vimrc_background
+    ~/.Xresources: Xresources
+    ~/.zshrc: zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
