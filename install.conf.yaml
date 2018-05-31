@@ -19,7 +19,7 @@
     ~/.i3blocks.conf: i3blocks.conf
     ~/.vimrc: vimrc
     ~/.vimrc_background: vimrc_background
-    ~/.wallpaper: wallpaper
+    ~/.wallpaper.jpg: wallpaper.jpg
     ~/.Xresources: Xresources
     ~/.zshrc: zshrc
 
