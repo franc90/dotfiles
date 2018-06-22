@@ -257,6 +257,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [class="Lxappearance"]      floating enable
 for_window [class="Shutter"]           floating enable
+for_window [class="Skype"]             floating disable
 
 # start application in specified workspace (use xprop to find class name)
 assign [class="TelegramDesktop"] $ws10
