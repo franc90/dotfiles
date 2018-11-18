@@ -212,11 +212,11 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Colors
 # class                 border  backgr. text    indicator child_border
 client.focused          #2B83A6 #2B83A6 #FFFFFF #DDDDDD   #2B83A6
-client.focused_inactive #212121 #212121 #86888C #292D2E   #5A5A5A
-client.unfocused        #212121 #212121 #86888C #292D2E   #5A5A5A
+client.focused_inactive #000000 #000000 #86888C #292D2E   #5A5A5A
+client.unfocused        #000000 #000000 #86888C #292D2E   #5A5A5A
 client.urgent           #D64E4E #D64E4E #FFFFFF #D64E4E   #D64E4E
-client.placeholder      #212121 #0C0C0C #FFFFFF #212121   #262626
-client.background       #212121
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #262626
+client.background       #000000 
 
 # Start i3bar to display a workspace bar
 bar {
@@ -225,7 +225,8 @@ bar {
     workspace_buttons       yes
     strip_workspace_numbers yes
     colors {
-        background  #212121
+#        background  #212121
+        background  #000000
         statusline  #DDDDDD
         separator   #666666
 	# old colors - deprecated
@@ -236,8 +237,8 @@ bar {
 
         # class             border  backgr. text
         focused_workspace   #2B83A6 #2B83A6 #FFFFFF
-        active_workspace    #212121 #212121 #FFFFFF
-        inactive_workspace  #212121 #212121 #86888C
+        active_workspace    #000000 #000000 #FFFFFF
+        inactive_workspace  #000000 #000000 #86888C
         urgent_workspace    #D64E4E #D64E4E #FFFFFF
     }
 }
@@ -267,4 +268,5 @@ exec --no-startup-id telegram-desktop
 exec --no-startup-id nm-applet
 # exec --no-startup-id xautolock -time 10 -locker "$lock"
 exec --no-startup-id compton -f --config ~/.config/compton/compton.conf 
+exec --no-startup-id fluxgui
 exec_always --no-startup-id feh --bg-scale /home/alex/.wallpaper.jpg
