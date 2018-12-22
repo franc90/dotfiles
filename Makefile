@@ -3,7 +3,7 @@ srcs = $(wildcard bin/*)
 bins = $(srcs:bin/%.sh=%)
 home_bin = ~/bin
 vim_conf = vimrc vimrc_background
-home_conf = $(vim_conf) Xresources
+home_conf = $(vim_conf) Xresources gitconfig
 
 .PHONY: all prepare install_local_bins install_home_config
 
