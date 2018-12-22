@@ -1,21 +1,27 @@
 current_dir = $(shell pwd)
-bins_target = ~/bin
+srcs = $(wildcard bin/*)
+bins = $(srcs:bin/%.sh=%)
+home_bin = ~/bin
 vim_conf = vimrc vimrc_background
-xresources_conf = Xresources
-all_conf = $(vim_conf) $(xresources_conf)
+home_conf = $(vim_conf) Xresources
 
-.PHONY: all install_bins install_home_config
+.PHONY: all prepare install_local_bins install_home_config
 
-all: install_bins install_home_config
+all: prepare install_local_bins install_home_config
 
-install_bins:
-	@echo "Installing bins"
-	@chmod +x ${current_dir}/bin/*
-	@rm -rf ${bins_target}
-	@ln -s ${current_dir}/bin ${bins_target}
+prepare:
+	@chmod +x _install/*
 
-install_home_config: $(all_conf)
+install_local_bins: $(bins)
+	@./_install/chmod.sh ${current_dir}/bin
 
-$(all_conf): ~/.$@
+$(bins):
+	@echo "Installing bin: "$@
+	@mkdir -p ~/bin
+	@./_install/mk_link.sh bin/$@.sh bin/$@
+
+install_home_config: $(home_conf)
+
+$(home_conf): ~/.$@
 	@echo "Installing "$@
-	@([ -L ~/.$@ ] && [ -e ~/.$@ ]) || (rm -f ~/.$@ && ln -s ${current_dir}/$@ ~/.$@)
+	@./_install/mk_link.sh $@ .$@
