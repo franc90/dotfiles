@@ -11,6 +11,7 @@ all: prepare install_local_bins install_home_config
 
 prepare:
 	@chmod +x _install/*
+	@./_install/apps.sh
 
 install_local_bins: $(bins)
 	@./_install/chmod.sh ${current_dir}/bin
