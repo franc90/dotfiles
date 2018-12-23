@@ -17,7 +17,7 @@ install-dotfiles: install-apps
 install-apps: update-system
 	@echo "install-apps"
 	is-executable stow || sudo apt-get -y install stow
-	sudo apt -y install vim jq curl ffmpeg youtube-dl git maven
+	sudo apt -y install vim jq curl ffmpeg youtube-dl git maven tree
 
 install-i3: update-system
 	@echo "install-i3"

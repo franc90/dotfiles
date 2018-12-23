@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 readonly directory=$1
-
 mkdir -p ${XDG_CONFIG_HOME}
 
 for FILE in $(ls -A ${directory}); do
