@@ -1,28 +1,32 @@
-current_dir = $(shell pwd)
-srcs = $(wildcard bin/*)
-bins = $(srcs:bin/%.sh=%)
-home_bin = ~/bin
-vim_conf = vimrc vimrc_background
-home_conf = $(vim_conf) Xresources gitconfig
+SHELL = /bin/bash
+DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+PATH := $(DOTFILES_DIR)/bin:$(PATH)
+export XDG_CONFIG_HOME := $(HOME)/.config
+export STOW_DIR := $(DOTFILES_DIR)
 
-.PHONY: all prepare install_local_bins install_home_config
+.PHONY: install install-i3
 
-all: prepare install_local_bins install_home_config
+install: install-dotfiles
 
-prepare:
-	@chmod +x _install/*
-	@./_install/apps.sh
+install-dotfiles: install-apps
+	@echo "install-dotfiles"
+	create-links.sh bash
+	create-links.sh scripts
+	create-links.sh common
 
-install_local_bins: $(bins)
-	@./_install/chmod.sh ${current_dir}/bin
+install-apps: update-system
+	@echo "install-apps"
+	is-executable stow || sudo apt-get -y install stow
+	sudo apt -y install vim jq curl ffmpeg youtube-dl git maven
 
-$(bins):
-	@echo "Installing bin: "$@
-	@mkdir -p ~/bin
-	@./_install/mk_link.sh bin/$@.sh bin/$@
+install-i3: update-system
+	@echo "install-i3"
+	create-links.sh i3
+	create-links.sh dunst
+	create-links.sh compton
 
-install_home_config: $(home_conf)
-
-$(home_conf): ~/.$@
-	@echo "Installing "$@
-	@./_install/mk_link.sh $@ .$@
+update-system:
+	@echo "update system"
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -f
