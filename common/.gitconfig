@@ -1,0 +1,20 @@
+[alias]
+	st = status
+	ss = status -sb
+	co = checkout
+
+	hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+	issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
+	staged = diff --cached
+	uncommit = reset --soft HEAD^
+	unstage = reset HEAD --
+
+[help]
+	autocorrect = 1 #fucking magic!
+
+[fetch]
+	prune = true
+
+[user]
+	email = azarnowski1@gmail.com
+	name = franc90
