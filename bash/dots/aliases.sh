@@ -6,6 +6,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 alias path='echo $PATH | tr -s ":" "\n"'    # Pretty print the path
 
 # Add an "alert" alias for long running commands.  Use like so:
