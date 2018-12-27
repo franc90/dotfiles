@@ -11,6 +11,7 @@ install: install-dotfiles
 
 install-dotfiles: install-apps
 	@echo "install-dotfiles"
+	@mkdir -p ~/bin
 	create-links.sh bash
 	create-links.sh scripts
 	create-links.sh common
