@@ -7,6 +7,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 .PHONY: install install-i3
 
 install: install-dotfiles
+	@cat post_install
 
 install-dotfiles: install-apps
 	@echo "install-dotfiles"
@@ -17,7 +18,7 @@ install-dotfiles: install-apps
 install-apps: update-system
 	@echo "install-apps"
 	is-executable stow || sudo apt-get -y install stow
-	sudo apt -y install vim jq curl ffmpeg youtube-dl git maven tree
+	sudo apt -y install vim jq curl ffmpeg youtube-dl git maven tree openvpn
 	@[[ -d ~/.jenv ]] || git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 
 install-i3: update-system
