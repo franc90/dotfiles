@@ -1,0 +1,10 @@
+{
+    "color_scheme": "Packages/ayu/ayu-dark.tmTheme",
+    "draw_white_space": "all",
+    "font_size": 14,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "theme": "ayu-dark.sublime-theme"
+}
