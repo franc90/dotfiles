@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
 
 if [[ "$EUID" -ne "0" ]] ; then
     echo "Needs to be run as root. Try sudo."
@@ -7,14 +11,14 @@ fi
 
 cd /home/alex/Downloads/
 
-readonly IDEA_TAR=$(ls | grep idea | grep tar.gz | sort -r | head -n 1)
+readonly IDEA_TAR=$(ls | grep idea*\.tar\.gz | sort -r | head -n 1)
 readonly TMP_DIR=/tmp/idea_tmp
 readonly TMP_TARGET_DIR=$TMP_DIR/idea
 readonly TARGET_DIR=/opt/idea
 
 echo "Creating tmp dir: $TMP_DIR"
-rm -r $TMP_DIR
-mkdir $TMP_DIR
+[[ -d "$TMP_DIR" ]] && rm -r $TMP_DIR
+mkdir -p $TMP_DIR
 
 if [[ -z $IDEA_TAR ]] ; then 
     echo "There seems to be no idea*tar.gz in $(pwd)"
