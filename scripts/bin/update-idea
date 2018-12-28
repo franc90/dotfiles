@@ -4,11 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if [[ "$EUID" -ne "0" ]] ; then
-    echo "Needs to be run as root. Try sudo."
-    exit 1
-fi
-
 cd /home/alex/Downloads/
 
 readonly IDEA_TAR=$(ls | grep idea*\.tar\.gz | sort -r | head -n 1)
@@ -33,9 +28,9 @@ readonly IDEA_ORIG_DIR=$(ls $TMP_DIR)
 mv $TMP_DIR/$IDEA_ORIG_DIR $TMP_TARGET_DIR
 
 
-echo "Clearing target directory: $TARGET_DIR"
-rm -r $TARGET_DIR
+echo "Clearing target directory: ${TARGET_DIR}. [Needs sudo powers]"
+sudo rm -r $TARGET_DIR
 
 echo "Moving idea to $TARGET_DIR..."
-mv $TMP_TARGET_DIR $TARGET_DIR
+sudo mv $TMP_TARGET_DIR $TARGET_DIR
 echo "Update comleted"
