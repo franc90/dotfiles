@@ -1,14 +1,24 @@
 #!/usr/bin/env bash
 
-readonly directory=$1
-mkdir -p ${XDG_CONFIG_HOME}
+readonly SOURCE_DIR="$1"
+readonly TARGET_DIR="${2:-"$HOME"}"
+readonly SHOULD_SUDO="${3:-""}"
 
-for FILE in $(ls -A ${directory}); do
-    if  [[ -f "${directory}/${FILE}" \
-        && -f ${HOME}/${FILE} \
-        && ! -h ${HOME}/${FILE} ]]; then
-        mv -v ${HOME}/${FILE}{,.bak};
+[[ -d "${XDG_CONFIG_HOME}" ]] || mkdir -p "${XDG_CONFIG_HOME}"
+
+for FILE_PATH in $(ls -A "${SOURCE_DIR}"); do
+    FILE="${FILE_PATH//+(*\/|.*)}"
+    if  [[ -f ${FILE_PATH} \
+        && -f ${TARGET_DIR}/${FILE} \
+        && ! -h ${TARGET_DIR}/${FILE} ]]; then
+            echo "moving FILE=$FILE"
+        mv -v "${TARGET_DIR}"/"${FILE}"{,.bak}
     fi
 done
 
-stow -t ${HOME} ${directory}
+CMD="stow -t ${TARGET_DIR} ${SOURCE_DIR}"
+if [[ ! -z "$SHOULD_SUDO" ]]; then
+    $(sudo $CMD)
+else
+    $($CMD)
+fi
