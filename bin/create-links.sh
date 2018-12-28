@@ -6,13 +6,12 @@ readonly SHOULD_SUDO="${3:-""}"
 
 [[ -d "${XDG_CONFIG_HOME}" ]] || mkdir -p "${XDG_CONFIG_HOME}"
 
-for FILE_PATH in $(ls -A "${SOURCE_DIR}"); do
-    FILE="${FILE_PATH//+(*\/|.*)}"
-    if  [[ -f ${FILE_PATH} \
+for FILE in $(ls -A "${SOURCE_DIR}"); do
+    if  [[ -f ${SOURCE_DIR}/${FILE} \
         && -f ${TARGET_DIR}/${FILE} \
         && ! -h ${TARGET_DIR}/${FILE} ]]; then
             echo "moving FILE=$FILE"
-        mv -v "${TARGET_DIR}"/"${FILE}"{,.bak}
+        mv -v ${TARGET_DIR}/${FILE}{,.bak}
     fi
 done
 
