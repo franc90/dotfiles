@@ -6,7 +6,7 @@ set -o pipefail
 
 cd /home/alex/Downloads/
 
-readonly IDEA_TAR=$(ls | grep idea*\.tar\.gz | sort -r | head -n 1)
+readonly IDEA_TAR=$(ls | grep idea.*\.tar\.gz | sort -r | head -n 1)
 readonly TMP_DIR=/tmp/idea_tmp
 readonly TMP_TARGET_DIR=$TMP_DIR/idea
 readonly TARGET_DIR=/opt/idea
