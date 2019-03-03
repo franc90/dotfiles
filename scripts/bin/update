@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+readonly SCRIPT_LOCATION="$(readlink -f "$(which update)")"
+readonly REPO="${SCRIPT_LOCATION%scripts*}"
+
+if [[ ! -d "$REPO" ]] ; then
+    echo "$REPO does not exist"
+    exit 1
+fi
+
+cd "$REPO"
+make
