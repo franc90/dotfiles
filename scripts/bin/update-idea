@@ -28,8 +28,8 @@ readonly IDEA_ORIG_DIR=$(ls $TMP_DIR)
 mv $TMP_DIR/$IDEA_ORIG_DIR $TMP_TARGET_DIR
 
 
-echo "Clearing target directory: ${TARGET_DIR}. [Needs sudo powers]"
-sudo rm -r $TARGET_DIR
+echo "Clearing target directory: ${TARGET_DIR} [Needs sudo powers]"
+[[ -d "$TARGET_DIR" ]] && sudo rm -r $TARGET_DIR
 
 echo "Moving idea to $TARGET_DIR..."
 sudo mv $TMP_TARGET_DIR $TARGET_DIR
