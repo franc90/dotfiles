@@ -9,3 +9,5 @@ for file in $(ls -A ${DOTS}); do
 done;
 
 unset file;
+
+export PATH="$HOME/.cargo/bin:$PATH"
