@@ -1,7 +1,7 @@
 " General
 set number relativenumber
 set linebreak
-set showbreak=+++
+" set showbreak=+++ " when numbered lines I don't feel it is needed
 set showmatch
 
 set hlsearch
