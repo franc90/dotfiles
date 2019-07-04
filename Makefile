@@ -15,6 +15,7 @@ install-dotfiles: install-apps
 	create-links.sh bash
 	create-links.sh scripts
 	create-links.sh common
+	create-links.sh tmux
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -f -v
 
 install-apps: update-system
