@@ -13,4 +13,9 @@ if [[ ! -d "$REPO" ]] ; then
 fi
 
 cd "$REPO"
+
+if [ "${1-}" != "-o" ]; then
+  git pull
+fi
+
 make
