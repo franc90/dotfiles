@@ -8,7 +8,16 @@ case $- in
       *) return;;
 esac
 
-source ~/.bash_profile
+# source files in dots
+BASH_DIR=$(dirname $(readlink -f ~/.bash_profile))
+DOTS=${BASH_DIR}/dots
+for file in $(ls -A ${DOTS}); do
+    FILE_PATH=${DOTS}/${file}
+    [[ -r "$FILE_PATH" ]] && [[ -f "$FILE_PATH" ]] && source "$FILE_PATH";
+done;
+unset file;
+unset BASH_DIR;
+unset DOTS;
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -24,14 +33,14 @@ fi
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
-  else
-    color_prompt=
-  fi
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
 fi
 
 if [ "$color_prompt" = yes ]; then
