@@ -1,3 +1,2 @@
-export PATH="$HOME/.cargo/bin:$PATH"
-
+source ~/.profile
 source ~/.bashrc
