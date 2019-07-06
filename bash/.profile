@@ -28,3 +28,10 @@ fi
 
 export CARGO_HOME=$HOME/.cargo/bin
 export PATH="$PATH:$CARGO_HOME"
+
+export NODEJS_HOME=/usr/local/lib/nodejs
+if [ ! -d "$NODEJS_HOME/bin" ]; then
+    echo "WARN: $NODEJS_HOME/bin not found. Create symlink to current node's bin."
+    return;
+fi
+export PATH=$NODEJS_HOME/bin:$PATH
