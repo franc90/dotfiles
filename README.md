@@ -5,4 +5,4 @@ especially dotfiles by:
 * [webpro](https://github.com/webpro/dotfiles)
 * [thoughtbot](https://github.com/thoughtbot/dotfiles)  
 
-(there are more but I am both too lazy and incompetent to find them all)
+(there are more and I am sure you'll manage to find them)
