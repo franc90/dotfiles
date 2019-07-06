@@ -93,6 +93,6 @@ export MANPAGER="less -FiRswX"
 
 export EDITOR='vim'
 
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
