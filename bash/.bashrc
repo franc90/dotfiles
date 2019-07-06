@@ -89,7 +89,7 @@ eval "$(jenv init -)"
 
 # ############### Others ###############
 # How display man
-export MANPAGER='less -X'
+export MANPAGER="less -FiRswX"
 
 export EDITOR='vim'
 
