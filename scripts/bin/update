@@ -8,13 +8,14 @@ readonly SCRIPT_LOCATION="$(readlink -f "$(which update)")"
 readonly REPO="${SCRIPT_LOCATION%scripts*}"
 
 if [[ ! -d "$REPO" ]] ; then
-    echo "$REPO does not exist"
+    echo "$REPO does not exist."
     exit 1
 fi
 
 cd "$REPO"
 
 if [ "${1-}" != "-o" ]; then
+  echo "Updating dotifiles."
   git pull
 fi
 
