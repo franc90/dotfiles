@@ -19,3 +19,4 @@ set ruler
 set list
 set wildmenu
 
+set background=dark
