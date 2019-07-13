@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 readonly SCRIPT_LOCATION="$(readlink -f "$(which update)")"
-readonly REPO="${SCRIPT_LOCATION%scripts*}"
+readonly REPO="${SCRIPT_LOCATION%home*}"
 
 if [[ ! -d "$REPO" ]] ; then
     echo "$REPO does not exist."
