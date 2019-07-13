@@ -20,6 +20,7 @@ install-apps: update-system
 	is-executable stow || sudo apt-get -y install stow
 	sudo apt -y install vim jq curl ffmpeg git maven tree openvpn shellcheck qbittorrent htop tmux xclip
 	@[[ -d ~/.jenv ]] || git clone https://github.com/gcuisinier/jenv.git ~/.jenv
+	github-install.sh ytdl-org youtube-dl
 
 install-i3: update-system
 	@echo "install-i3"
