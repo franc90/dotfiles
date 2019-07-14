@@ -11,36 +11,36 @@ readonly VERSION="${4:-"latest"}"
 readonly TARGET_DIR="${5:-"/usr/local/bin/"}"
 readonly ARTIFACT_PATH="$TARGET_DIR$ARTIFACT"
 readonly RELEASE_INFO=$(curl --silent "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/releases/$VERSION" )
-DOWNLOAD_NEW=true
-
-mkdir -p "$TARGET_DIR"
 
 if [ "$(echo "$RELEASE_INFO" | jq -r '.assets | length')" == "0" ]; then
   echo -e "${RED}No assets found for $ARTIFACT $VERSION$RESET"
   exit 1
 fi
 
-if [ "$(echo "$RELEASE_INFO" | jq -r --arg ARTIFACT "$ARTIFACT" '
-      [.assets[] | select(.name == $ARTIFACT) ] | flatten | length')" == "0" ]; then
-  echo -e "${RED}No asset named '$ARTIFACT' found for $ARTIFACT $VERSION$RESET"
-  exit 1
-fi
+DOWNLOAD_APP=true
+mkdir -p "$TARGET_DIR"
 
 if hash "$ARTIFACT" 2>/dev/null; then
   readonly CURRENT_VERSION=$($ARTIFACT --version)
   readonly WANTED_VERSION=$(echo "$RELEASE_INFO" | jq -r '.tag_name')
   if [ "$CURRENT_VERSION" != "$WANTED_VERSION" ]; then
-    echo "updating $ARTIFACT $CURRENT_VERSION -> $WANTED_VERSION"
+    echo "Updating $ARTIFACT $CURRENT_VERSION -> $WANTED_VERSION."
     sudo rm "$ARTIFACT_PATH"
   else
     echo "$ARTIFACT $VERSION already installed."
-    DOWNLOAD_NEW=false
+    DOWNLOAD_APP=false
   fi
 else
-  echo "doesn't exists, will download"
+  echo "$ARTIFACT doesn't exists, will be downloaded."
 fi
 
-if $DOWNLOAD_NEW; then
+if [ "$(echo "$RELEASE_INFO" | jq -r --arg ARTIFACT "$ARTIFACT" '
+      [.assets[] | select(.name == $ARTIFACT) ] | flatten | length')" == "0" ]; then
+  echo -e "${RED}Aborting - no asset named '$ARTIFACT' found for $ARTIFACT $VERSION.$RESET"
+  exit 1
+fi
+
+if $DOWNLOAD_APP; then
   readonly APP_URL=$(echo "$RELEASE_INFO" |
     jq -r --arg ARTIFACT "$ARTIFACT" '
         .assets[] |
