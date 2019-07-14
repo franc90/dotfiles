@@ -1,23 +1,39 @@
 #!/usr/bin/env bash
 
+readonly RED='\033[0;31m'
+readonly RESET='\033[0m'
 readonly GITHUB_USER="$1"
 readonly GITHUB_REPO="$2"
-readonly ARTIFACT="${2:-"$GITHUB_REPO"}"
-readonly TARGET_DIR="${3:-"/usr/local/bin/"}"
+readonly ARTIFACT="${3:-"$GITHUB_REPO"}"
+# if version != latest needs to be release id from https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/releases
+# TODO add searching tag_name -> id so that it would be more user friendly
+readonly VERSION="${4:-"latest"}"
+readonly TARGET_DIR="${5:-"/usr/local/bin/"}"
 readonly ARTIFACT_PATH="$TARGET_DIR$ARTIFACT"
-readonly LATEST_RELEASE_INFO=$(curl --silent "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/releases/latest" )
+readonly RELEASE_INFO=$(curl --silent "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/releases/$VERSION" )
 DOWNLOAD_NEW=true
 
 mkdir -p "$TARGET_DIR"
 
-if hash youtube-dl 2>/dev/null; then
-  readonly CURRENT_VERSION=$(youtube-dl --version)
-  readonly LATEST_VERSION=$(echo "$LATEST_RELEASE_INFO" | jq -r '.tag_name')
-  if [[ "$CURRENT_VERSION" < "$LATEST_VERSION" ]]; then
-    echo "updating $ARTIFACT $CURRENT_VERSION -> $LATEST_VERSION"
+if [ "$(echo "$RELEASE_INFO" | jq -r '.assets | length')" == "0" ]; then
+  echo -e "${RED}No assets found for $ARTIFACT $VERSION$RESET"
+  exit 1
+fi
+
+if [ "$(echo "$RELEASE_INFO" | jq -r --arg ARTIFACT "$ARTIFACT" '
+      [.assets[] | select(.name == $ARTIFACT) ] | flatten | length')" == "0" ]; then
+  echo -e "${RED}No asset named '$ARTIFACT' found for $ARTIFACT $VERSION$RESET"
+  exit 1
+fi
+
+if hash "$ARTIFACT" 2>/dev/null; then
+  readonly CURRENT_VERSION=$($ARTIFACT --version)
+  readonly WANTED_VERSION=$(echo "$RELEASE_INFO" | jq -r '.tag_name')
+  if [ "$CURRENT_VERSION" != "$WANTED_VERSION" ]; then
+    echo "updating $ARTIFACT $CURRENT_VERSION -> $WANTED_VERSION"
     sudo rm "$ARTIFACT_PATH"
   else
-    echo "Latest version of $ARTIFACT installed."
+    echo "$ARTIFACT $VERSION already installed."
     DOWNLOAD_NEW=false
   fi
 else
@@ -25,7 +41,7 @@ else
 fi
 
 if $DOWNLOAD_NEW; then
-  readonly APP_URL=$(echo "$LATEST_RELEASE_INFO" |
+  readonly APP_URL=$(echo "$RELEASE_INFO" |
     jq -r --arg ARTIFACT "$ARTIFACT" '
         .assets[] |
         select(.name == $ARTIFACT) |
