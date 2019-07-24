@@ -6,7 +6,7 @@ set -o pipefail
 
 cd /home/alex/Downloads/
 
-readonly IDEA_TAR=$(ls | grep idea.*\.tar\.gz | sort -r | head -n 1)
+readonly IDEA_TAR=$(find /home/alex/Downloads/ -name "idea*tar.gz"  -printf "%f\n" | sort -r | head -n 1)
 readonly TMP_DIR=/tmp/idea_tmp
 readonly TMP_TARGET_DIR=$TMP_DIR/idea
 readonly TARGET_DIR=/opt/idea
@@ -21,16 +21,24 @@ if [[ -z $IDEA_TAR ]] ; then
 fi
 
 echo "Unpacking $IDEA_TAR..."
-tar -xzf $IDEA_TAR -C $TMP_DIR || { echo "Unpacking failed" ; exit 1; }
+tar -xzf "$IDEA_TAR" -C $TMP_DIR || { echo "Unpacking failed" ; exit 1; }
 echo "Unpacked to $TMP_DIR"
 
 readonly IDEA_ORIG_DIR=$(ls $TMP_DIR)
-mv $TMP_DIR/$IDEA_ORIG_DIR $TMP_TARGET_DIR
+mv $TMP_DIR/"$IDEA_ORIG_DIR" $TMP_TARGET_DIR
 
 
 echo "Clearing target directory: ${TARGET_DIR} [Needs sudo powers]"
+install=true
+[[ -d "$TARGET_DIR" ]] && install=false
 [[ -d "$TARGET_DIR" ]] && sudo rm -r $TARGET_DIR
 
-echo "Moving idea to $TARGET_DIR..."
+echo "Moving idea to $TARGET_DIR"
 sudo mv $TMP_TARGET_DIR $TARGET_DIR
-echo "Update comleted"
+echo "Install comleted"
+
+if $install; then
+  echo ""
+  echo "Set font to Hack 16, method separators, whitespaces visible, no tabs, turn on Semantic Highlighting"
+  echo "install plugins: Frame Switcher, String Manipulation, Key Promoter?, themes (Gradianto, One Dark)"
+fi
