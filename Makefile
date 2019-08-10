@@ -12,6 +12,7 @@ install: install-dotfiles
 install-dotfiles: install-apps
 	@echo "install-dotfiles"
 	@mkdir -p ~/bin
+	@mkdir -p ~/.local/share/bash-completion/completions
 	create-links.sh home
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -f -v
 
