@@ -26,8 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export CARGO_HOME=$HOME/.cargo/bin
-export PATH="$PATH:$CARGO_HOME"
+export CARGO_HOME=$HOME/.cargo
+export PATH="$PATH:$CARGO_HOME/bin"
 
 export NODEJS_HOME=/usr/local/lib/nodejs
 if [ ! -d "$NODEJS_HOME/bin" ]; then
