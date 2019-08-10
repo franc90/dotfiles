@@ -35,10 +35,10 @@ install=true
 
 echo "Moving idea to $TARGET_DIR"
 sudo mv $TMP_TARGET_DIR $TARGET_DIR
-echo "Install comleted"
+echo "Install completed"
 
 if $install; then
   echo ""
   echo "Set font to Hack 16, method separators, whitespaces visible, no tabs, turn on Semantic Highlighting"
-  echo "install plugins: Frame Switcher, String Manipulation, Key Promoter?, themes (Gradianto, One Dark)"
+  echo "install plugins: Frame Switcher, String Manipulation, Key Promoter?, Rainbow Brackets, Rust, themes (Gradianto, One Dark)"
 fi
