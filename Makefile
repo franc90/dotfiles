@@ -19,7 +19,7 @@ install-dotfiles: install-apps
 install-apps: update-system
 	@echo "install-apps"
 	is-executable.sh stow || sudo apt-get -y install stow
-	sudo apt -y install vim jq curl ffmpeg git maven tree openvpn shellcheck qbittorrent htop tmux xclip
+	sudo apt -y install vim jq curl ffmpeg git maven tree openvpn shellcheck qbittorrent htop tmux xclip nmap
 	@[[ -d ~/.jenv ]] || git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 	github-install.sh ytdl-org youtube-dl
 
