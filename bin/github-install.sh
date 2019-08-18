@@ -27,7 +27,7 @@ if hash "$ARTIFACT" 2>/dev/null; then
     echo "Updating $ARTIFACT $CURRENT_VERSION -> $WANTED_VERSION."
     sudo rm "$ARTIFACT_PATH"
   else
-    echo "$ARTIFACT $VERSION already installed."
+    echo "$ARTIFACT is already at the desired version ($CURRENT_VERSION)."
     DOWNLOAD_APP=false
   fi
 else
