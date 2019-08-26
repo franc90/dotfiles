@@ -4,7 +4,7 @@ PATH := $(DOTFILES_DIR)/bin:$(PATH)
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 
-.PHONY: install install-i3
+.PHONY: install
 
 install: install-dotfiles
 	@cat post_install
@@ -22,12 +22,6 @@ install-apps: update-system
 	sudo apt -y install vim jq curl ffmpeg git maven tree openvpn shellcheck qbittorrent htop tmux xclip nmap
 	@[[ -d ~/.jenv ]] || git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 	github-install.sh ytdl-org youtube-dl
-
-install-i3: update-system
-	@echo "install-i3"
-	create-links.sh i3
-	create-links.sh dunst
-	create-links.sh compton
 
 update-system:
 	@echo "update system"
