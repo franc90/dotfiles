@@ -10,21 +10,21 @@ install: install-dotfiles
 	@cat post_install
 
 install-dotfiles: install-apps
-	@echo "install-dotfiles"
+	@log.sh "Installing dotfiles:"
 	@mkdir -p ~/bin
 	@mkdir -p ~/.local/share/bash-completion/completions
 	create-links.sh home
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -f -v
 
 install-apps: update-system
-	@echo "install-apps"
+	@log.sh "Installing apps:"
 	is-executable.sh stow || sudo apt-get -y install stow
 	sudo apt -y install vim jq curl ffmpeg git maven tree openvpn shellcheck qbittorrent htop tmux xclip nmap
 	@[[ -d ~/.jenv ]] || git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 	github-install.sh ytdl-org youtube-dl
 
 update-system:
-	@echo "update system"
+	@log.sh "Updating system:"
 	sudo apt-get update
 	sudo apt-get upgrade -y
 	sudo apt-get dist-upgrade -f
