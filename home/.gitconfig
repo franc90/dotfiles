@@ -9,6 +9,9 @@
   uncommit = reset --soft HEAD^
   unstage = reset HEAD --
 
+[push]
+  default = current
+
 [help]
   autocorrect = 1 #fucking magic!
 
