@@ -90,8 +90,9 @@ eval "$(jenv init -)"
 # ############### Others ###############
 # How display man
 export MANPAGER="less -FiRswX"
-
 export EDITOR='vim'
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
