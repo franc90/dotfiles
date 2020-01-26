@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Script converting texts in windows-1250 to utf-8
+#
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if [ "$#" -lt 1 ]; then
+  echo "Please provide at least one file to convert to utf-8"
+  exit 1
+fi
+
+for file in "$@" ; do
+  echo "win-1250 -> utf-8: $file"
+  iconv -f windows-1250 -t utf8 -o "$file.new" "$file" && mv -f "$file.new" "$file"
+done
