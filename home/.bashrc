@@ -82,6 +82,7 @@ shopt -s cmdhist
 export HISTCONTROL="erasedups:ignoreboth"
 export HISTSIZE=50000
 export HISTFILESIZE=50000
+export HISTTIMEFORMAT="[%F %T] "
 
 # ############### jenv ###############
 export PATH="$HOME/.jenv/bin:$PATH"
