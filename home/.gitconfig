@@ -21,3 +21,6 @@
 [user]
   email = azarnowski1@gmail.com
   name = franc90
+
+[core]
+  pager = diff-so-fancy | less --tabs=1,5 -RFX
