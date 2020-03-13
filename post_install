@@ -10,6 +10,7 @@ You should probably install too:
     * Ayu theme:   https://github.com/dempfi/ayu
 * fzf:             https://github.com/junegunn/fzf
 * nnn:             https://github.com/jarun/nnn/releases
+* bat:             https://github.com/sharkdp/bat
 * nodejs:          https://nodejs.org/en/
 * rust:
     * rustup       https://rustup.rs/
