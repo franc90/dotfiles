@@ -40,5 +40,5 @@ echo "Install completed"
 if $install; then
   echo ""
   echo "Set font to Hack 16, method separators, whitespaces visible, no tabs, turn on Semantic Highlighting"
-  echo "install plugins: Frame Switcher, String Manipulation, Key Promoter?, Rainbow Brackets, Rust, themes (Gradianto, One Dark)"
+  echo "install plugins: Frame Switcher, String Manipulation, Key Promoter?, Rainbow Brackets, AceJump, Rust, themes (Gradianto, One Dark)"
 fi
