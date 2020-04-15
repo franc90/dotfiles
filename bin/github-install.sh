@@ -11,8 +11,12 @@ readonly VERSION="${4:-"latest"}"
 readonly TARGET_DIR="${5:-"/usr/local/bin/"}"
 readonly ARTIFACT_PATH="$TARGET_DIR$ARTIFACT"
 readonly RELEASE_INFO=$(curl --silent "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/releases/$VERSION" )
+readonly ERR_RELEASE_MSG="$(echo "$RELEASE_INFO" | jq -re '.message')"
 
-if [ "$(echo "$RELEASE_INFO" | jq -r '.assets | length')" == "0" ]; then
+if [ "$ERR_RELEASE_MSG" != "null" ]; then
+  echo -e "${RED}Github: ${ERR_RELEASE_MSG}$RESET"
+  exit 1
+elif [ "$(echo "$RELEASE_INFO" | jq -r '.assets | length')" == "0" ]; then
   echo -e "${RED}No assets found for $ARTIFACT $VERSION$RESET"
   exit 1
 fi
