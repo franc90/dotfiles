@@ -14,7 +14,7 @@ install-dotfiles: install-apps
 	@mkdir -p ~/bin
 	@mkdir -p ~/.local/share/bash-completion/completions
 	create-links.sh home
-	create-links.sh fonts /usr/local/share/fonts true && fc-cache -f -v
+	create-links.sh fonts /usr/local/share/fonts true && fc-cache -fv
 
 install-apps: update-system
 	@log.sh "Installing apps:"
