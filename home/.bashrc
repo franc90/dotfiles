@@ -92,7 +92,7 @@ eval "$(jenv init -)"
 
 # Change prompt to know I'm in shell of nnn's
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
-export NNN_COLORS='1234'
+export NNN_COLORS='3254'
 export NNN_BMS='d:~/Downloads/'
 export NNN_SSHFS_OPTS="sshfs -o follow_symlinks"
 export NNN_DE_FILE_MANAGER=nautilus
