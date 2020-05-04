@@ -17,21 +17,17 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
 export CARGO_HOME=$HOME/.cargo
-export PATH="$PATH:$CARGO_HOME/bin"
+[ -d "$CARGO_HOME/bin" ] && PATH="$PATH:$CARGO_HOME/bin"
 
 export NODEJS_HOME=/usr/local/lib/nodejs
 if [ ! -d "$NODEJS_HOME/bin" ]; then
     echo "WARN: $NODEJS_HOME/bin not found. Create symlink to current node's bin."
-    return;
+else
+    export PATH=$NODEJS_HOME/bin:$PATH
 fi
-export PATH=$NODEJS_HOME/bin:$PATH
