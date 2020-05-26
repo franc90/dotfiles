@@ -15,8 +15,16 @@ for FILE in $(ls -A "${SOURCE_DIR}"); do
     fi
 done
 
+for DIR in $(find "$SOURCE_DIR" -type d | tail -n +2 | sed "s|$SOURCE_DIR/|$TARGET_DIR/|"); do
+    if [[ -n "$SHOULD_SUDO" ]]; then
+        sudo mkdir -p "$DIR"
+    else
+        mkdir -p "$DIR"
+    fi
+done
+
 CMD="stow -t ${TARGET_DIR} ${SOURCE_DIR}"
-if [[ ! -z "$SHOULD_SUDO" ]]; then
+if [[ -n "$SHOULD_SUDO" ]]; then
     $(sudo $CMD)
 else
     $($CMD)
