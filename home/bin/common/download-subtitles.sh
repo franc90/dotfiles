@@ -22,11 +22,11 @@ FILES=$(
     fzf -m --phony --no-sort --cycle --layout=reverse --preview='bat --style=numbers --color=always {} | head -500'
 )
 
-SAVEIFS=$IFS   # Save current IFS
-IFS=$'\n'      # Change IFS to new line
-FILES=($FILES) # split to array $FILES
-IFS=$SAVEIFS   # Restore IFS
+ORIG_IFS=$IFS
+IFS=$'\n'
+FILES=($FILES) # split to array
+IFS=$ORIG_IFS
 
-for (( i=0; i<${#FILES[@]}; i++ )); do
-  qnapi -c -l "$LANG" "${FILES[$i]}"
+for FILE in "${FILES[@]}"; do
+  qnapi -c -l "$LANG" "$FILE"
 done
