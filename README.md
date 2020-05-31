@@ -1,3 +1,5 @@
+Project to store my personal dotfiles.
+
 If you look for inspiration, I recommend using 
 [awesome-dotfiles](https://github.com/webpro/awesome-dotfiles), 
 especially dotfiles created by:
