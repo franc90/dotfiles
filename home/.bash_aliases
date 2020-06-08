@@ -10,6 +10,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias open="xdg-open"
+
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
