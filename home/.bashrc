@@ -84,10 +84,6 @@ export HISTSIZE=50000
 export HISTFILESIZE=50000
 export HISTTIMEFORMAT="[%F %T] "
 
-# ############### jenv ###############
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 # ############### nnn ##################
 
 # Change prompt to know I'm in shell of nnn's
