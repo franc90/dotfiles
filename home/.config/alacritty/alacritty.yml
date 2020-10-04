@@ -34,7 +34,7 @@ font:
   bold_italic:
     family: Hack
     style: Bold Italic
-  size: 13.0
+  size: 10.0
   offset:
     x: 0
     y: 0
