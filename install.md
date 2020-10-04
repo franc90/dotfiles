@@ -2,6 +2,7 @@
 Checked for Debian 10.
 
 1. Do minimal installation (only standard system utilities)
+1. Execute: `xdg-user-dirs-update`
 1. Swith to root `su -`
 1. `apt install -y sudo git make vim`
 1. `usermod -aG sudo {{username}}`
