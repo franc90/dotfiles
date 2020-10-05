@@ -10,7 +10,6 @@ set $shutdown shutdown -h now
 set $lock ~/.config/i3/bin/lock.sh
 #set $lock ~/.config/i3/bin/lock_screenshot.sh
 set $logout ~/.config/i3/bin/logout.sh
-set $display ~/.config/i3/bin/display.sh
 
 # Define names for default workspaces.
 set $ws1    "1"
@@ -137,7 +136,7 @@ bindsym $mod+Shift+r restart
 # move container to other monitor
 bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
-bindsym $mod+p exec --no-startup-id $display
+bindsym $mod+p exec --no-startup-id select-display
 
 set $mode_system System (l) lock, (e) logout, (r) reboot, (q) shutdown, (Esc) abort
 mode "$mode_system" {

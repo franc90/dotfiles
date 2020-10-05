@@ -1,0 +1,56 @@
+#!/bin/bash
+# This script is intended to make switching between laptop and external displays easier when using i3+dmenu
+# To run this script, map it to some shortcut in your i3 config, e.g:
+# bindsym $mod+p exec --no-startup-id $config/select-display
+# IMPORTANT: run chmod +x on the script to make it executable
+# The result is 4 options appearing in dmenu, from which you can choose
+
+restartDunst() {
+  killall dunst
+  setsid -f dunst
+}
+
+all_displays=$(xrandr -q | grep "connected")
+screens=$(echo "$all_displays" | awk '/ connected/ {print $1}')
+
+if [ "$(echo "$screens" | wc -l)" -lt 2 ] ; then
+  xrandr --output "$screens" --auto $(echo "$all_displays" | grep -v "$screens" | awk '{print "--output", $1, "--off"}' | paste -sd ' ')
+  restartDunst
+  notify-send "One screen detected." "Using $screens as only display"
+  exit
+fi
+
+laptop_screen="eDP1"
+external_screens="$(echo "$screens" | grep -v "$laptop_screen")"
+
+if [ "$(echo "$screens" | wc -l)" -eq "$(echo "$external_screens" | sed '/^\s*$/d' | wc -l)" ]; then
+  notify-send --urgency=critical "No laptop screen" "Laptop screen $laptop_screen not found in: $screens"
+  arandr
+  restartDunst
+  exit
+elif [ "$(echo "$external_screens" | wc -l)" -gt 1 ]; then
+  notify-send --urgency=critical "Multiple external screens" "Only single external screen supported"
+  arandr
+  restartDunst
+  exit
+fi
+
+choices="laptop\ndual\nexternal\nclone"
+chosen=$(echo -e $choices | dmenu -i -p "Select display mode:")
+
+case "$chosen" in
+    external)
+      xrandr --output $laptop_screen --off --output "$external_screens" --auto --primary
+      ;;
+    laptop)
+      xrandr --output $laptop_screen --auto --primary --output "$external_screens" --off
+      ;;
+    clone)
+      xrandr --output $laptop_screen --auto --output "$external_screens" --auto --same-as $laptop_screen
+      ;;
+    dual)
+      xrandr --output $laptop_screen --auto --output "$external_screens" --auto --right-of $laptop_screen --primary
+      ;;
+esac
+
+restartDunst
