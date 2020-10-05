@@ -31,3 +31,6 @@ if [ ! -d "$NODEJS_HOME/bin" ]; then
 else
     export PATH=$NODEJS_HOME/bin:$PATH
 fi
+
+export WALLPAPER="$(find "$(readlink -f "/home/alex/Pictures/wallpapers")" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)"
+xwallpaper --stretch "$WALLPAPER"
