@@ -187,6 +187,9 @@ bar {
         status_command i3status
 }
 
+bindsym XF86MonBrightnessDown    exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp      exec --no-startup-id xbacklight -inc 5
+
 bindsym $mod+b exec "flatpak run org.mozilla.firefox"
 
 exec --no-startup-id nm-applet
