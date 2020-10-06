@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script is intended to make switching between laptop and external displays easier when using i3+dmenu
 # To run this script, map it to some shortcut in your i3 config, e.g:
-# bindsym $mod+p exec --no-startup-id $config/select-display
+# bindsym $mod+p exec --no-startup-id $config/selectDisplay
 # IMPORTANT: run chmod +x on the script to make it executable
 # The result is 4 options appearing in dmenu, from which you can choose
 
@@ -49,7 +49,7 @@ case "$chosen" in
       xrandr --output $laptop_screen --auto --output "$external_screens" --auto --same-as $laptop_screen
       ;;
     dual)
-      xrandr --output $laptop_screen --auto --output "$external_screens" --auto --right-of $laptop_screen --primary
+      xrandr --output $laptop_screen --auto --output "$external_screens" --auto --left-of $laptop_screen --primary
       ;;
 esac
 

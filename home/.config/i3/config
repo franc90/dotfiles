@@ -136,7 +136,7 @@ bindsym $mod+Shift+r restart
 # move container to other monitor
 bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
-bindsym $mod+p exec --no-startup-id select-display
+bindsym $mod+p exec --no-startup-id selectDisplay
 
 set $mode_system System (l) lock, (e) logout, (r) reboot, (q) shutdown, (Esc) abort
 mode "$mode_system" {
