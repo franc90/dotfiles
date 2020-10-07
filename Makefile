@@ -23,10 +23,9 @@ setup-desktop:
 install-apps: update-system
 	@log.sh "Installing apps:"
 	is-executable.sh stow || sudo apt -y install stow
-	sudo apt -y install vim jq curl ffmpeg git maven tree shellcheck qbittorrent htop tmux xclip nmap pulseaudio \
+	sudo apt -y install vim jq curl ffmpeg git maven tree shellcheck qbittorrent htop tmux xclip nmap pulseaudio pulsemixer\
 		pavucontrol vlc qnapi dosfstools exfat-utils ntfs-3g unrar udiskie libnotify-bin network-manager network-manager-gnome\
 		xbacklight sxiv xwallpaper arandr intel-microcode
-
 	sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	sudo flatpak install -y flathub org.mozilla.firefox org.gimp.GIMP org.telegram
 	@github-install.sh ytdl-org youtube-dl
