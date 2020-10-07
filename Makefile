@@ -18,7 +18,7 @@ install-dotfiles: install-apps setup-desktop
 
 setup-desktop:
 	@log.sh "Setting up desktop:"
-	sudo apt -y install i3 xorg j4-dmenu-desktop sddm
+	sudo apt -y install i3 xorg sddm
 
 install-apps: update-system
 	@log.sh "Installing apps:"
