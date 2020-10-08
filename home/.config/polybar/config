@@ -1,0 +1,306 @@
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[settings]
+; The throttle settings lets the eventloop swallow up til X events
+; if they happen within Y millisecond after first event was received.
+; This is done to prevent flood of update event.
+;
+; For example if 5 modules emit an update event at the same time, we really
+; just care about the last one. But if we wait too long for events to swallow
+; the bar would appear sluggish so we continue if timeout
+; expires or limit is reached.
+throttle-output = 5
+throttle-output-for = 10
+
+; Time in milliseconds that the input handler will wait between processing events
+throttle-input-for = 30
+
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+include-file = ~/.config/polybar/colors
+
+[bar/mainbar]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 27
+radius = 0.0
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = ${colors.accent}
+
+border-size = 0
+border-color = ${colors.accent}
+
+padding = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Fantasque Sans Mono:pixelsize=14:style=Bold;3"
+font-1 = "Iosevka Nerd Font:style=Regular:size=15;3"
+font-2 = FontAwesome5FreeSolid:pixelsize=14:style=Bold;3
+
+modules-left = i3 xwindow
+modules-center =
+modules-right = xkeyboard xbacklight pulseaudio wlan eth memory cpu temperature battery0 battery1 date
+
+; The separator will be inserted between the output of each module
+;separator = "|"
+;separator = 
+separator-padding = 0
+separator-foreground = ${colors.foreground}
+
+; Opacity value between 0.0 and 1.0 used on fade in/out
+dim-value = 1.0
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
+
+wm-restack = i3
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.background}
+label-focused-underline= ${colors.accent}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${self.label-focused-foreground}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 5
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:50:...%
+label-empty = Desktop
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout =
+label-layout-underline = ${colors.accent}
+
+label-indicator-padding = 1
+label-indicator-margin = 0
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.foreground}
+label-indicator-underline = ${colors.foreground}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <ramp>  <label>
+label =    %percentage%%
+
+ramp-0 = 盛
+ramp-foreground = ${colors.yellow}
+format-underline = ${self.ramp-foreground}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.brown}
+format-underline = ${self.format-prefix-foreground}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 3
+
+format = <label>
+label = %gb_used%/%gb_total%
+
+[module/wlan]
+type = internal/network
+interface = ${env:WLAN:wlp3s0}
+interval = 3.0
+
+format-connected = <ramp-signal>  <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+ramp-signal-0 = 
+ramp-signal-foreground = ${colors.blue}
+
+format-disconnected = <label-disconnected>
+label-disconnected = 睊  %ifname%
+label-disconnected-foreground = ${colors.warning}
+
+[module/eth]
+type = internal/network
+interface = ${env:ETH:enp0s31f6}
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.blue}
+label-connected = %local_ip%
+
+;format-disconnected =
+format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected =   %ifname%
+label-disconnected-foreground = ${colors.warning}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+date-alt = " %d-%m-%Y"
+
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+format-prefix =
+format-prefix-foreground = ${colors.foreground}
+format-underline = #0a6cf5
+
+label = %time% %date%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume>  <label-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+
+ramp-volume-0 = ﱘ
+ramp-volume-foreground = ${colors.cyan}
+
+label-muted = ﱙ
+label-muted-foreground = ${colors.warning}
+
+[module/battery0]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 95
+
+format-charging = <animation-charging>  <label-charging>
+format-charging-underline = ${colors.foreground}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+format-discharging = <ramp-capacity>  <label-discharging>
+format-discharging-underline = ${colors.notify}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.notify}
+
+label-full = ""
+label-full-foreground = ${colors.success}
+label-full-underline = ${self.label-full-foreground}
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 95
+
+format-charging = <animation-charging>  <label-charging>
+format-charging-underline = ${colors.foreground}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+format-discharging = <ramp-capacity>  <label-discharging>
+format-discharging-underline = ${colors.notify}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.notify}
+
+label-full = ""
+label-full-foreground = ${colors.success}
+label-full-underline = ${self.label-full-foreground}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+base-temperature = 60
+warn-temperature = 80
+
+format = <ramp> <label>
+format-warn = <label-warn>
+format-warn-background = ${colors.foreground}
+
+label-warn =  %temperature-c%
+label-warn-padding = 1
+label-warn-foreground = ${colors.urgent}
+label-warn-background = ${colors.foreground}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+ramp-0-foreground = ${colors.cyan}
+ramp-1-foreground = ${colors.cyan}
+ramp-2-foreground = ${colors.notify}
+ramp-3-foreground = ${colors.notify}
+ramp-4-foreground = ${colors.warning}
+
+
+
+
+
+

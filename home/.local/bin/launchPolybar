@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+wireless_iface=$(nmcli device status | cut -d" " -f1 | grep ^wl)
+eth_iface=$(nmcli device status | cut -d" " -f1 | grep ^enp)
+
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+  WLAN="$wireless_iface" ETH="$eth_iface" MONITOR=$m polybar --reload mainbar &
+done

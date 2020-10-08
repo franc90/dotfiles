@@ -5,7 +5,8 @@
 # IMPORTANT: run chmod +x on the script to make it executable
 # The result is 4 options appearing in dmenu, from which you can choose
 
-restartDunst() {
+restartDunstAndRelaunchPolybar() {
+  launchPolybar
   killall dunst
   setsid -f dunst
 }
@@ -15,7 +16,7 @@ screens=$(echo "$all_displays" | awk '/ connected/ {print $1}')
 
 if [ "$(echo "$screens" | wc -l)" -lt 2 ] ; then
   xrandr --output "$screens" --auto $(echo "$all_displays" | grep -v "$screens" | awk '{print "--output", $1, "--off"}' | paste -sd ' ')
-  restartDunst
+  restartDunstAndRelaunchPolybar
   notify-send "One screen detected." "Using $screens as only display"
   exit
 fi
@@ -26,12 +27,12 @@ external_screens="$(echo "$screens" | grep -v "$laptop_screen")"
 if [ "$(echo "$screens" | wc -l)" -eq "$(echo "$external_screens" | sed '/^\s*$/d' | wc -l)" ]; then
   notify-send --urgency=critical "No laptop screen" "Laptop screen $laptop_screen not found in: $screens"
   arandr
-  restartDunst
+  restartDunstAndRelaunchPolybar
   exit
 elif [ "$(echo "$external_screens" | wc -l)" -gt 1 ]; then
   notify-send --urgency=critical "Multiple external screens" "Only single external screen supported"
   arandr
-  restartDunst
+  restartDunstAndRelaunchPolybar
   exit
 fi
 
@@ -53,4 +54,4 @@ case "$chosen" in
       ;;
 esac
 
-restartDunst
+restartDunstAndRelaunchPolybar
