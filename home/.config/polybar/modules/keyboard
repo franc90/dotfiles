@@ -7,6 +7,6 @@ label-layout-underline = ${colors.accent}
 
 label-indicator-padding = 1
 label-indicator-margin = 0
-label-indicator-foreground = ${colors.background}
-label-indicator-background = ${colors.foreground}
-label-indicator-underline = ${colors.foreground}
+label-indicator-foreground = ${colors.foreground}
+label-indicator-background = ${colors.alert}
+label-indicator-underline = ${colors.alert}
