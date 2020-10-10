@@ -8,8 +8,7 @@ set $mod Mod4
 set $term alacritty
 set $shutdown shutdown -h now
 set $lock i3lock -c 000000
-#set $lock ~/.config/i3/bin/lock_screenshot.sh
-set $logout ~/.config/i3/bin/logout.sh
+set $logout i3-msg exit
 
 # Define names for default workspaces.
 set $ws1    "1"
