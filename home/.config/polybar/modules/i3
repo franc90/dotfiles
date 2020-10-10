@@ -32,7 +32,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 5
+label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
