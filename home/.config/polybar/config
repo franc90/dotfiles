@@ -68,12 +68,6 @@ modules-left = i3 window-title
 modules-center =
 modules-right = keyboard backlight volume wlan ethernet memory cpu cpu-temp battery0 battery1 date
 
-; The separator will be inserted between the output of each module
-;separator = "|"
-;separator = 
-separator-padding = 0
-separator-foreground = ${colors.foreground}
-
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
 
