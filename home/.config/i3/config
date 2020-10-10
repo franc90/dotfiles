@@ -7,7 +7,7 @@ set $mod Mod4
 #set $term i3-sensible-terminal
 set $term alacritty
 set $shutdown shutdown -h now
-set $lock ~/.config/i3/bin/lock.sh
+set $lock i3lock -c 000000
 #set $lock ~/.config/i3/bin/lock_screenshot.sh
 set $logout ~/.config/i3/bin/logout.sh
 
@@ -53,6 +53,8 @@ bindsym $mod+d exec dmenu_run -fn 'Lato -16'
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+n exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Lato -16'"
+
+bindsym $mod+x exec $lock
 
 # change focus
 bindsym $mod+j focus left
