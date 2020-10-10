@@ -1,0 +1,15 @@
+[module/eth]
+type = internal/network
+interface = ${env:ETH:enp0s31f6}
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.blue}
+label-connected = %local_ip%
+
+;format-disconnected =
+format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected =   %ifname%
+label-disconnected-foreground = ${colors.warning}

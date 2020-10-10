@@ -1,0 +1,12 @@
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout =
+label-layout-underline = ${colors.accent}
+
+label-indicator-padding = 1
+label-indicator-margin = 0
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.foreground}
+label-indicator-underline = ${colors.foreground}

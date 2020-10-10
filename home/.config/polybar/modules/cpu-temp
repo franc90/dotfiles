@@ -1,0 +1,26 @@
+[module/cpu-temp]
+type = internal/temperature
+thermal-zone = 0
+base-temperature = 60
+warn-temperature = 80
+
+format = <ramp> <label>
+format-warn = <label-warn>
+format-warn-background = ${colors.foreground}
+
+label-warn =  %temperature-c%
+label-warn-padding = 1
+label-warn-foreground = ${colors.urgent}
+label-warn-background = ${colors.foreground}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+ramp-0-foreground = ${colors.cyan}
+ramp-1-foreground = ${colors.cyan}
+ramp-2-foreground = ${colors.notify}
+ramp-3-foreground = ${colors.notify}
+ramp-4-foreground = ${colors.warning}
