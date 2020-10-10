@@ -37,7 +37,7 @@ elif [ "$(echo "$external_screens" | wc -l)" -gt 1 ]; then
 fi
 
 choices="laptop\ndual\nexternal\nclone"
-chosen=$(echo -e $choices | dmenu -i -p "Select display mode:")
+chosen=$(echo -e $choices | dmenu -i -fn 'Lato -16'p -p "Select display mode:")
 
 case "$chosen" in
     external)
