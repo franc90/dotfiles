@@ -1,0 +1,1 @@
+If no other system installed set value of GRUB_TIMEOUT to 0. Then run: `sudo update-grub`
