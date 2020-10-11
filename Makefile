@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
-PATH := $(DOTFILES_DIR)/bin:$(PATH)
+PATH := $(DOTFILES_DIR)/makefile_scripts:$(PATH)
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 
