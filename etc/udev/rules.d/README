@@ -3,3 +3,8 @@
 To make the change effective don't forget to reload the udev rules:
 udevadm control --reload-rules
 (or even reboot system)
+
+
+todo: fix auto display setting:
+https://bbs.archlinux.org/viewtopic.php?id=170294
+maybe autorands is an answer https://github.com/phillipberndt/autorandr
