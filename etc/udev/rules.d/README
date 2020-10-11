@@ -1,0 +1,5 @@
+99-hdmi_sound.rules was based on: https://wiki.archlinux.org/index.php/PulseAudio/Examples#Automatically_switch_audio_to_HDMI
+
+To make the change effective don't forget to reload the udev rules:
+udevadm control --reload-rules
+(or even reboot system)
