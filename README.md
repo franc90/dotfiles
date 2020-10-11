@@ -1,4 +1,4 @@
-#Personal dotfiles
+# Personal dotfiles
 
 ### Installation
 Tried on Debian 10.
