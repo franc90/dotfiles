@@ -15,6 +15,7 @@ install-dotfiles: install-apps setup-desktop
 	@mkdir -p ~/.local/share/bash-completion/completions
 	create-links.sh home
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -fv
+	create-links.sh bin /usr/local/bin true && fc-cache -fv
 
 setup-desktop:
 	@log.sh "Setting up desktop:"
@@ -29,7 +30,6 @@ install-apps: update-system
 	sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	sudo flatpak install -y flathub org.mozilla.firefox org.gimp.GIMP org.telegram
 	@github-install.sh ytdl-org youtube-dl
-	@install.sh ./lib/fzf
 
 update-system:
 	@log.sh "Updating system:"
