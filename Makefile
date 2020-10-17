@@ -6,18 +6,16 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 .PHONY: install
 
-install: install-dotfiles
-	@cat post_install
-
-install-dotfiles: install-apps setup-desktop
+install: install-apps install-desktop
 	@log.sh "Installing dotfiles:"
 	@mkdir -p ~/.local/bin
 	@mkdir -p ~/.local/share/bash-completion/completions
 	create-links.sh home
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -fv
 	create-links.sh bin /usr/local/bin true
+	@cat post_install
 
-setup-desktop:
+install-desktop:
 	@log.sh "Setting up desktop:"
 	sudo apt -y install i3 xorg sddm
 
