@@ -15,7 +15,7 @@ install-dotfiles: install-apps setup-desktop
 	@mkdir -p ~/.local/share/bash-completion/completions
 	create-links.sh home
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -fv
-	create-links.sh bin /usr/local/bin true && fc-cache -fv
+	create-links.sh bin /usr/local/bin true
 
 setup-desktop:
 	@log.sh "Setting up desktop:"
