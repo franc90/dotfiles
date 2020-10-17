@@ -22,6 +22,7 @@ set list
 set wildmenu
 
 set background=dark
+syntax on
 
 hi Whitespace ctermfg=DarkGray
 match Whitespace /\s/
