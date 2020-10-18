@@ -21,7 +21,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # set PATH so it includes user's private bin if it exists
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
-export CARGO_HOME=$HOME/.cargo
+export CARGO_HOME=$XDG_CONFIG_HOME/cargo
+export RUSTUP_HOME=$XDG_CONFIG_HOME/rustup
 [ -d "$CARGO_HOME/bin" ] && PATH="$PATH:$CARGO_HOME/bin"
 
 export NODEJS_HOME=/usr/local/lib/nodejs
