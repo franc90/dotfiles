@@ -16,6 +16,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # set PATH so it includes user's private bin if it exists
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 

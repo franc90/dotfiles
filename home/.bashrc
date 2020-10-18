@@ -99,8 +99,5 @@ export NNN_PLUG='s:sxiv'
 export MANPAGER="less -FiRswX"
 export EDITOR='vim'
 
-export XDG_CONFIG_HOME="$HOME/.config"
-
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
