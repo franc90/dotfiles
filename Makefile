@@ -27,7 +27,7 @@ install-apps: update-system
  		shellcheck vlc pulseaudio pulsemixer pavucontrol qnapi sxiv arandr qbittorrent xclip ufw gufw mupdf mupdf-tools newsboat
 	sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	sudo flatpak install -y flathub org.mozilla.firefox org.gimp.GIMP org.telegram
-	@github-install.sh ytdl-org youtube-dl
+#	@github-install.sh ytdl-org youtube-dl
 
 update-system:
 	@log.sh "Updating system:"
