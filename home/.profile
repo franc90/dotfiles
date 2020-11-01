@@ -32,4 +32,5 @@ else
     export PATH=$NODEJS_HOME/bin:$PATH
 fi
 
+export WALLPAPER=$HOME/.local/share/bg
 changeWallpaper

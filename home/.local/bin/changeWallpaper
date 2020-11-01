@@ -1,4 +1,5 @@
 #!/bin/bash
 
 wallpaper="$(find "$(readlink -f "/home/alex/Pictures/wallpapers")" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)"
-xwallpaper --stretch "$wallpaper"
+ln -sf "$wallpaper" "$WALLPAPER"
+xwallpaper --stretch "$WALLPAPER"
