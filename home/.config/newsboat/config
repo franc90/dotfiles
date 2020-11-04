@@ -10,7 +10,7 @@ browser "firefox %u"
 confirm-exit yes
 notify-program "notify-send --urgency=low"
 
-macro d set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best"; open-in-browser ; set browser linkhandler
+macro v set browser "mpv %u" ; open-in-browser ; set browser linkhandler
 
 color listnormal cyan default
 color listfocus black yellow standout bold
