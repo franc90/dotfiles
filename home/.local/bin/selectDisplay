@@ -6,6 +6,7 @@
 # The result is 4 options appearing in dmenu, from which you can choose
 
 restartDunstAndRelaunchPolybar() {
+  refreshWallpaper
   launchPolybar
   killall dunst
   setsid -f dunst
