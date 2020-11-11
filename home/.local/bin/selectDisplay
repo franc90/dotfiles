@@ -5,6 +5,9 @@
 # IMPORTANT: run chmod +x on the script to make it executable
 # The result is 4 options appearing in dmenu, from which you can choose
 
+bg_color="#1F1F1F"
+fg_color="#D8DEE9"
+
 restartDunstAndRelaunchPolybar() {
   refreshWallpaper
   launchPolybar
@@ -38,7 +41,7 @@ elif [ "$(echo "$external_screens" | wc -l)" -gt 1 ]; then
 fi
 
 choices="laptop\ndual\nexternal\nclone"
-chosen=$(echo -e $choices | dmenu -i -fn 'Lato -16'p -p "Select display mode:")
+chosen=$(echo -e $choices | dmenu -i -nb "$bg_color" -nf "$fg_color" -sb "$fg_color" -sf "$bg_color" -fn 'Input_Bold -16'p -p "Select display mode:")
 
 case "$chosen" in
     external)
