@@ -1,9 +1,7 @@
 [module/backlight]
 type = internal/xbacklight
 
-format = <ramp>  <label>
-label =    %percentage%%
+format = "<ramp> <label>"
 
+label =    %percentage%%
 ramp-0 = 盛
-ramp-foreground = ${colors.yellow}
-format-underline = ${self.ramp-foreground}

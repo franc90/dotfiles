@@ -2,14 +2,12 @@
 type = internal/date
 interval = 1
 
-date =
-date-alt = "%d-%m-%Y"
+date = "%d-%m-%Y"
+date-alt =
 
 time = %H:%M:%S
 time-alt = %H:%M:%S
 
-format-prefix =
-format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+format-suffix =
 
-label = %time% %date%
+label = "%time% %date%"
