@@ -17,7 +17,7 @@ install: install-apps install-desktop
 
 install-desktop:
 	@log.sh "Setting up desktop:"
-	sudo apt -y install i3 xorg sddm
+	sudo apt -y install i3 xorg sddm compton
 
 install-apps: update-system
 	@log.sh "Installing apps:"
