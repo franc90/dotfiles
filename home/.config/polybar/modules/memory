@@ -1,6 +1,0 @@
-[module/memory]
-type = internal/memory
-interval = 3
-
-format = <label>
-label = %gb_used%/%gb_total%

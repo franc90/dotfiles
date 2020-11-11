@@ -1,7 +1,0 @@
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = "  "
-format-prefix-foreground = ${colors.brown}
-format-underline = ${self.format-prefix-foreground}
-label = %percentage:2%%
