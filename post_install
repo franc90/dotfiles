@@ -16,6 +16,7 @@ You should probably install too:
 * rust:
     * rustup       https://rustup.rs/
     * for bash completion run: `rustup completions bash > ~/.local/share/bash-completion/completions/rustup`
+    * and then: `rustup completions bash cargo >> ~/.local/share/bash-completion/completions/cargo`
 
 Configure ufw: https://wiki.archlinux.org/index.php/Uncomplicated_FirewallV
 
