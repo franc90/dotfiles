@@ -9,8 +9,19 @@ set $term alacritty
 set $shutdown shutdown -h now
 set $lock i3lock -c 000000
 set $logout i3-msg exit
+
+# colors also in polybar/colors file
 set $bg_color #1F1F1F
 set $fg_color #D8DEE9
+set $alt_color #9F9F9F
+set $alert_color #BD2C40
+
+# class                 border        backgr.      text       indicator  child_border
+client.focused          $fg_color     $fg_color    $bg_color  $fg_color  $alt_color
+client.focused_inactive $alt_color    $alt_color   $bg_color  $fg_color  $bg_color
+client.unfocused        $bg_color     $bg_color    $fg_color  $bg_color  $bg_color
+client.urgent           $alert_color  $alert_color $fg_color  $bg_color  $alert_color
+client.placeholder      #000000       #0c0c0c      $fg_color  #000000    $bg_color
 
 # Define names for default workspaces.
 set $ws1    "1"
