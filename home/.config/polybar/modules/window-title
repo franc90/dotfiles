@@ -1,4 +1,4 @@
 [module/window-title]
 type = internal/xwindow
-label = %title:0:50:...%
+label = %title:0:75:...%
 label-empty = Desktop
