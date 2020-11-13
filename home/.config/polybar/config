@@ -62,7 +62,7 @@ font-0 = "Fantasque Sans Mono Nerd Font:pixelsize=14:style=Bold;3"
 
 modules-left = i3 window-title
 modules-center =
-modules-right = keyboard volume wlan ethernet cpu-temp battery0 battery1 date
+modules-right = keyboard volume cpu-temp wlan ethernet battery0 battery1 date
 
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
