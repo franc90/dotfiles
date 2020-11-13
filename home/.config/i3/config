@@ -200,8 +200,8 @@ bindsym XF86Display              exec --no-startup-id selectDisplay
 bindsym XF86AudioMute            exec --no-startup-id volume mute
 bindsym XF86AudioLowerVolume     exec --no-startup-id volume down
 bindsym XF86AudioRaiseVolume     exec --no-startup-id volume up
-bindsym XF86MonBrightnessDown    exec --no-startup-id xbacklight -dec 5
-bindsym XF86MonBrightnessUp      exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown    exec --no-startup-id brightness down
+bindsym XF86MonBrightnessUp      exec --no-startup-id brightness up
 
 bindsym $mod+b exec "flatpak run org.mozilla.firefox"
 
