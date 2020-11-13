@@ -4,7 +4,8 @@ thermal-zone = 0
 base-temperature = 55
 warn-temperature = 80
 
-format = "<ramp> <label>"
+; format = "<ramp> <label>"
+format =
 
 ramp-0 = 
 ramp-1 = 
