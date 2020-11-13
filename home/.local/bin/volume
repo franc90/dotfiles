@@ -1,0 +1,55 @@
+#!/bin/bash
+
+function get_volume() {
+  pulsemixer --get-volume | awk '{print $1}'
+}
+
+icon_prefix="/usr/share/icons/Numix/48/notifications/"
+high_vol_icon="${icon_prefix}notification-audio-volume-high.svg"
+low_vol_icon="${icon_prefix}notification-audio-volume-low.svg"
+med_vol_icon="${icon_prefix}notification-audio-volume-medium.svg"
+muted_icon="${icon_prefix}notification-audio-volume-muted.svg"
+max_bar_size=30
+
+function send_notification() {
+  if [ "$(pulsemixer --get-mute)" -eq "1" ]; then
+    dunstify -a "changeVolume" -t 2000 -u normal -h string:x-canonical-private-synchronous:changeVolume -i "$muted_icon" " muted"
+    return
+  fi
+
+  volume=$(get_volume)
+  vol_size=$((volume / 5))
+  missing=$(seq -s "·" $((max_bar_size + 1 - vol_size)) | sed 's/[0-9]//g')
+  existing=$(seq -s "─" $((vol_size + 1)) | sed 's/[0-9]//g')
+  bar="$existing$missing"
+
+  if [ "$volume" -lt "40" ]; then
+    dunstify -a "changeVolume" -t 2000 -u normal -h string:x-canonical-private-synchronous:changeVolume -i "$low_vol_icon" -h int:value:"$volume" "$bar"
+  elif [ "$volume" -lt "80" ]; then
+    dunstify -a "changeVolume" -t 2000 -u normal -h string:x-canonical-private-synchronous:changeVolume -i "$med_vol_icon" -h int:value:"$volume" "$bar"
+  else
+    dunstify -a "changeVolume" -t 2000 -u normal -h string:x-canonical-private-synchronous:changeVolume -i "$high_vol_icon" -h int:value:"$volume" "$bar"
+  fi
+}
+
+case $1 in
+up)
+  # Set the volume on (if it was muted)
+  pulsemixer --unmute
+  pulsemixer --change-volume +5
+  send_notification
+  ;;
+down)
+  # Set the volume on (if it was muted)
+  pulsemixer --unmute
+  pulsemixer --change-volume -5
+  if [ "$(get_volume)" -eq "0" ]; then
+      pulsemixer --mute
+  fi
+  send_notification
+  ;;
+mute)
+  pulsemixer --toggle-mute
+  send_notification
+  ;;
+esac
