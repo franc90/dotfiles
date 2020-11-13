@@ -17,6 +17,10 @@ You should probably install too:
     * rustup       https://rustup.rs/
     * for bash completion run: `rustup completions bash > ~/.local/share/bash-completion/completions/rustup`
     * and then: `rustup completions bash cargo >> ~/.local/share/bash-completion/completions/cargo`
+* dunst
+    * dunst 1.5.0 (esp. dunstify) is required for proper sound volume and brightness change notifications
+    * make sure version 1.5.0 (not in debian buster) is available otherwise:
+    * install from github https://github.com/dunst-project/dunst
 
 Configure ufw: https://wiki.archlinux.org/index.php/Uncomplicated_FirewallV
 
