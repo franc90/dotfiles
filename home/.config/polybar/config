@@ -25,7 +25,6 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 include-file = $HOME/.config/polybar/colors
-include-file = $HOME/.config/polybar/modules/backlight
 include-file = $HOME/.config/polybar/modules/battery0
 include-file = $HOME/.config/polybar/modules/battery1
 include-file = $HOME/.config/polybar/modules/cpu-temp
