@@ -29,7 +29,6 @@ include-file = $HOME/.config/polybar/modules/battery0
 include-file = $HOME/.config/polybar/modules/battery1
 include-file = $HOME/.config/polybar/modules/cpu-temp
 include-file = $HOME/.config/polybar/modules/date
-include-file = $HOME/.config/polybar/modules/ethernet
 include-file = $HOME/.config/polybar/modules/i3
 include-file = $HOME/.config/polybar/modules/keyboard
 include-file = $HOME/.config/polybar/modules/volume
@@ -61,7 +60,7 @@ font-0 = "Fantasque Sans Mono Nerd Font:pixelsize=14:style=Bold;3"
 
 modules-left = i3 window-title
 modules-center =
-modules-right = keyboard volume cpu-temp wlan ethernet battery0 battery1 date
+modules-right = keyboard volume cpu-temp wlan battery0 battery1 date
 
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
