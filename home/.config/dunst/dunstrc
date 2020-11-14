@@ -143,7 +143,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "%p <b>%s</b>\n%b"
+    format = "<b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -426,6 +426,14 @@
 #    # This notification will not be displayed, but will be included in the history
 #    summary = "foobar"
 #    skip_display = yes
+
+[change_volume]
+    appname = changeVolume
+    format = "%p <b>%s</b>"
+
+[change_brightness]
+    appname = changeBrightness
+    format = "%p <b>%s</b>"
 
 #[signed_on]
 #    appname = Pidgin
