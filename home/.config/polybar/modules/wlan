@@ -3,7 +3,7 @@ type = internal/network
 interface = ${env:WLAN:wlp3s0}
 interval = 3.0
 
-format-connected = "<ramp-signal> "
+format-connected =
 
 label-connected = %essid%
 ramp-signal-0 = 
