@@ -40,7 +40,7 @@ shopt -s cdspell 2> /dev/null
 
 
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color|alacritty) color_prompt=yes;;
 esac
 
 if [ "$color_prompt" = yes ]; then
