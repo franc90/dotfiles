@@ -24,4 +24,5 @@ ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
 
-label-full = " 100%"
+; label-full = " 100%"
+label-full =
