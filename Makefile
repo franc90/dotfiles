@@ -6,7 +6,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 .PHONY: install
 
-install: install-apps install-desktop
+install: install-apps
 	@log.sh "Installing dotfiles:"
 	@mkdir -p ~/.local/bin
 	@mkdir -p ~/.local/share/bash-completion/completions
@@ -15,24 +15,14 @@ install: install-apps install-desktop
 	create-links.sh bin /usr/local/bin true
 	@cat post_install
 
-install-desktop:
-	@log.sh "Setting up desktop:"
-	sudo apt -y install i3 xorg sddm compton
-
 install-apps: update-system
 	@log.sh "Installing apps:"
 	is-executable.sh stow || sudo apt -y install stow
-	sudo apt -y install firmware-linux firmware-linux-nonfree intel-microcode dosfstools exfat-utils ntfs-3g unrar udiskie \
-		libnotify-bin network-manager network-manager-gnome curl vim htop tmux git nmap jq ffmpeg maven tree xwallpaper xbacklight \
-		shellcheck mpv pulseaudio pulsemixer pavucontrol qnapi sxiv arandr qbittorrent xclip ufw gufw mupdf mupdf-tools newsboat flameshot
-	sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	sudo flatpak install -y flathub org.mozilla.firefox org.gimp.GIMP org.telegram
-#	@github-install.sh ytdl-org youtube-dl
+	sudo apt -y install exfat-utils unrar udiskie curl vim htop tmux git nmap jq ffmpeg maven tree xwallpaper xbacklight \
+		shellcheck mpv pulsemixer pavucontrol qnapi sxiv arandr qbittorrent xclip gufw mupdf mupdf-tools newsboat flameshot i3
 
 update-system:
 	@log.sh "Updating system:"
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt dist-upgrade -f
-	is-executable.sh flatpak || sudo apt install -y flatpak
-	sudo flatpak update
