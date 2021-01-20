@@ -203,10 +203,10 @@ bindsym XF86AudioRaiseVolume     exec --no-startup-id volume up
 bindsym XF86MonBrightnessDown    exec --no-startup-id brightness down
 bindsym XF86MonBrightnessUp      exec --no-startup-id brightness up
 
-bindsym $mod+b exec "flatpak run org.mozilla.firefox"
+bindsym $mod+b exec "firefox"
 
 exec_always --no-startup-id launchPolybar
 exec --no-startup-id compton --config $XDG_CONFIG_HOME/compton/compton.conf
-exec --no-startup-id flatpak run org.telegram.desktop -startintray
+#exec --no-startup-id flatpak run org.telegram.desktop -startintray
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -Nt2
