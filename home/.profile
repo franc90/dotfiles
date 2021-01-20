@@ -27,7 +27,7 @@ export CARGO_HOME=$XDG_CONFIG_HOME/cargo
 export RUSTUP_HOME=$XDG_CONFIG_HOME/rustup
 [ -d "$CARGO_HOME/bin" ] && PATH="$PATH:$CARGO_HOME/bin"
 
-export NODEJS_HOME=/usr/local/lib/nodejs
+export NODEJS_HOME=/opt/node
 if [ ! -d "$NODEJS_HOME/bin" ]; then
     echo "WARN: $NODEJS_HOME/bin not found. Create symlink to current node's bin."
 else
