@@ -1,7 +1,16 @@
 
 
 You should probably install too:
+* rust:
+    * rustup       https://rustup.rs/
+    * for bash completion run: `rustup completions bash > ~/.local/share/bash-completion/completions/rustup`
+    * and then: `rustup completions bash cargo >> ~/.local/share/bash-completion/completions/cargo`
 * Alacritty:       https://github.com/alacritty/alacritty
+* dunst
+    * dunst 1.5.0 (esp. dunstify) is required for proper sound volume and brightness change notifications
+        use https://github.com/dunst-project/dunst
+    * make sure version 1.5.0 (not in debian buster) is available otherwise:
+    * install from github https://github.com/dunst-project/dunst
 * Simplenote:      https://github.com/Automattic/simplenote-electron/releases/
 * Nordvpn:         https://nordvpn.com/pl/download/linux/
 * Sublime Text:    https://www.sublimetext.com/docs/3/linux_repositories.html#apt
@@ -13,14 +22,6 @@ You should probably install too:
 * bat:             https://github.com/sharkdp/bat
 * ExifTool:        https://exiftool.org/
 * nodejs:          https://nodejs.org/en/
-* rust:
-    * rustup       https://rustup.rs/
-    * for bash completion run: `rustup completions bash > ~/.local/share/bash-completion/completions/rustup`
-    * and then: `rustup completions bash cargo >> ~/.local/share/bash-completion/completions/cargo`
-* dunst
-    * dunst 1.5.0 (esp. dunstify) is required for proper sound volume and brightness change notifications
-    * make sure version 1.5.0 (not in debian buster) is available otherwise:
-    * install from github https://github.com/dunst-project/dunst
 
 Configure ufw: https://wiki.archlinux.org/index.php/Uncomplicated_FirewallV
 
