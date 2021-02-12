@@ -207,6 +207,6 @@ bindsym $mod+b exec "firefox"
 
 exec_always --no-startup-id launchPolybar
 exec --no-startup-id picom --config $XDG_CONFIG_HOME/picom/picom.conf
-#exec --no-startup-id flatpak run org.telegram.desktop -startintray
+exec --no-startup-id telegram -startintray
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -Nt2
