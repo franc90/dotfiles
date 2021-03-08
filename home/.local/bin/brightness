@@ -7,12 +7,13 @@ max_bar_size=20
 function send_notification() {
   backlight=$(xbacklight -get | bc)
   backlight=${backlight%.*}
-  backlight_size=$((backlight / 5))
-  missing=$(seq -s "·" $((max_bar_size + 1 - backlight_size)) | sed 's/[0-9]//g')
-  existing=$(seq -s "─" $((backlight_size + 1)) | sed 's/[0-9]//g')
-  bar="$existing$missing"
 
-  dunstify -a "changeBrightness" -t 2000 -u normal -h string:x-canonical-private-synchronous:changeBrightness -i "$brightness_icon" -h int:value:"$backlight" "$bar"
+  dunstify -a "changeBrightness" \
+    -t 2000 \
+    -u normal \
+    -h string:x-canonical-private-synchronous:brightness "Brightness" \
+    -i "$brightness_icon" \
+    -h int:value:"$backlight"
 }
 
 case $1 in

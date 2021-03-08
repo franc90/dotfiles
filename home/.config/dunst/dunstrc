@@ -429,11 +429,11 @@
 
 [change_volume]
     appname = changeVolume
-    format = "%p <b>%s</b>"
+    format = "<b>%s</b> %p"
 
 [change_brightness]
     appname = changeBrightness
-    format = "%p <b>%s</b>"
+    format = "<b>%s</b> %p"
 
 #[signed_on]
 #    appname = Pidgin
