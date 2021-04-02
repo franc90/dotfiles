@@ -61,6 +61,8 @@ case "$chosen" in
     dual)
       xrandr --output $laptop_screen --auto --output "$external_screens" --auto --left-of $laptop_screen --primary
       ;;
+    *)
+      exit
 esac
 
 restartDunstAndRelaunchPolybar
