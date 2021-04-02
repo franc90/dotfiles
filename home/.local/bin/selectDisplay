@@ -19,7 +19,7 @@ all_displays=$(xrandr -q | grep "connected")
 screens=$(echo "$all_displays" | awk '/ connected/ {print $1}')
 
 if [ "$(echo "$screens" | wc -l)" -lt 2 ] ; then
-  xrandr --output "$screens" --auto $(echo "$all_displays" | grep -v "$screens" | awk '{print "--output", $1, "--off"}' | paste -sd ' ')
+  xrandr --output "$screens" --auto "$(echo "$all_displays" | grep -v "$screens" | awk '{print "--output", $1, "--off"}' | paste -sd ' ')"
   restartDunstAndRelaunchPolybar
   notify-send "One screen detected." "Using $screens as only display"
   exit
@@ -46,7 +46,7 @@ if [ "$(echo "$external_screens" | wc -l)" -gt 1 ]; then
 fi
 
 choices="laptop\ndual\nexternal\nclone"
-chosen=$(echo -e $choices | dmenu -i -nb "$bg_color" -nf "$fg_color" -sb "$fg_color" -sf "$bg_color" -fn 'Input_Bold -16'p -p "Select display mode:")
+chosen=$(echo -e $choices | dmenu -i -nb "$bg_color" -nf "$fg_color" -sb "$fg_color" -sf "$bg_color" -fn 'Input_Bold -16' -p "Select display mode:")
 
 case "$chosen" in
     external)
