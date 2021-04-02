@@ -23,7 +23,7 @@ You should probably install too:
 * ExifTool:        https://exiftool.org/
 * nodejs:          https://nodejs.org/en/
 
-Configure ufw: https://wiki.archlinux.org/index.php/Uncomplicated_FirewallV
+Configure ufw: https://wiki.archlinux.org/index.php/Uncomplicated_Firewall
 
 More at reddit: https://www.reddit.com/r/programming/comments/9zo70o/nnn_v21_released_a_terminal_file_manager_for
 and in Luke's video: https://www.youtube.com/watch?v=U2n5aGqou9E
