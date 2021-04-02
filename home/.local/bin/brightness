@@ -2,7 +2,6 @@
 
 icon_prefix="/usr/share/icons/Numix/48/notifications/"
 brightness_icon="${icon_prefix}notification-display-brightness-full.svg"
-max_bar_size=20
 
 function send_notification() {
   backlight=$(xbacklight -get | bc)
