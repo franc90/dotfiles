@@ -9,7 +9,6 @@ high_vol_icon="${icon_prefix}notification-audio-volume-high.svg"
 low_vol_icon="${icon_prefix}notification-audio-volume-low.svg"
 med_vol_icon="${icon_prefix}notification-audio-volume-medium.svg"
 muted_icon="${icon_prefix}notification-audio-volume-muted.svg"
-max_bar_size=30
 
 function send_notification() {
   if [ "$(pulsemixer --get-mute)" -eq "1" ]; then
@@ -44,23 +43,23 @@ function send_notification() {
 }
 
 case $1 in
-up)
-  # Set the volume on (if it was muted)
-  pulsemixer --unmute
-  pulsemixer --change-volume +5
-  send_notification
-  ;;
-down)
-  # Set the volume on (if it was muted)
-  pulsemixer --unmute
-  pulsemixer --change-volume -5
-  if [ "$(get_volume)" -eq "0" ]; then
-      pulsemixer --mute
-  fi
-  send_notification
-  ;;
-mute)
-  pulsemixer --toggle-mute
-  send_notification
-  ;;
+  up)
+    # Set the volume on (if it was muted)
+    pulsemixer --unmute
+    pulsemixer --change-volume +5
+    send_notification
+    ;;
+  down)
+    # Set the volume on (if it was muted)
+    pulsemixer --unmute
+    pulsemixer --change-volume -5
+    if [ "$(get_volume)" -eq "0" ]; then
+        pulsemixer --mute
+    fi
+    send_notification
+    ;;
+  mute)
+    pulsemixer --toggle-mute
+    send_notification
+    ;;
 esac

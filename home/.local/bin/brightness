@@ -16,14 +16,14 @@ function send_notification() {
 }
 
 case $1 in
-up)
-  # Set the volume on (if it was muted)
-  xbacklight -inc 5
-  send_notification
-  ;;
-down)
-  # Set the volume on (if it was muted)
-  xbacklight -dec 5
-  send_notification
-  ;;
+  up)
+    # Set the volume on (if it was muted)
+    xbacklight -inc 5
+    send_notification
+    ;;
+  down)
+    # Set the volume on (if it was muted)
+    xbacklight -dec 5
+    send_notification
+    ;;
 esac
