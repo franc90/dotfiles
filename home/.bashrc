@@ -92,7 +92,7 @@ export NNN_COLORS='3254'
 export NNN_BMS='d:~/Downloads/'
 export NNN_SSHFS_OPTS="sshfs -o follow_symlinks"
 export NNN_DE_FILE_MANAGER=nautilus
-export NNN_PLUG='s:sxiv'
+export NNN_PLUG='v:imgview'
 
 # ############### Others ###############
 # How display man
