@@ -12,6 +12,9 @@
 [push]
   default = current
 
+[pull]
+  rebase = false
+
 [help]
   autocorrect = 1 #fucking magic!
 
