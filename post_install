@@ -25,6 +25,9 @@ You should probably install too:
 * bat:             https://github.com/sharkdp/bat
 * ExifTool:        https://exiftool.org/
 * nodejs:          https://nodejs.org/en/
+* mpv:
+    mpv may not suspend GNOME's Power Saving Settings if using Wayland resulting in screen saver turning off the monitor during video playback.
+    A workaround is to add `gnome-session-inhibit` to the beginning of the `Exec=` line in `/usr/share/applications/mpv.desktop`.
 
 Configure ufw: https://wiki.archlinux.org/index.php/Uncomplicated_Firewall
 
