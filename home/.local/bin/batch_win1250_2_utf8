@@ -8,7 +8,7 @@ FILES=$(
   find . -maxdepth 1 -type f | # find files in curr dir
     sed 's|^\.\/||' | # remove './' from beginning
     sort |
-    fzf -m --disable --no-sort --cycle \
+    fzf -m --disabled --no-sort --cycle \
       --layout=reverse \
       --preview='bat --style=numbers --color=always {} | head -500'
 )
