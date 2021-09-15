@@ -1,6 +1,6 @@
 {
   // see https://github.com/dempfi/ayu
-  "color_scheme": "Packages/ayu/ayu-mirage.tmTheme",
+  "color_scheme": "Packages/ayu/ayu-mirage.sublime-color-scheme",
   "draw_white_space": "all",
   "font_face": "Hack",
   "font_size": 15,
@@ -8,7 +8,7 @@
   "translate_tabs_to_spaces": true,
   "ignored_packages":
   [
-    "Vintage"
+    "Vintage",
   ],
-  "theme": "ayu-mirage.sublime-theme"
+  "theme": "ayu-mirage.sublime-theme",
 }
