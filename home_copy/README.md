@@ -1,1 +1,0 @@
-Files in this directory are to be copied to appropriate targets rather than linked. 
