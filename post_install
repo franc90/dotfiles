@@ -9,6 +9,10 @@ You should probably install too:
     * to set as default terminal in ubuntu:
       sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
       sudo update-alternatives --config x-terminal-emulator
+* kitty:           https://sw.kovidgoyal.net/kitty/
+    * to set as default terminal in ubuntu:
+      sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which kitty) 50
+      sudo update-alternatives --config x-terminal-emulator
 * dunst
     * dunst 1.6.0 (esp. dunstify) is required for proper sound volume and brightness change notifications
         use https://github.com/dunst-project/dunst
