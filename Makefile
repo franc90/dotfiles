@@ -18,7 +18,7 @@ install: install-apps
 install-apps: update-system
 	@log.sh "Installing apps:"
 	is-executable.sh stow || sudo apt -y install stow
-	sudo apt -y install exfat-utils unrar curl vim htop tmux git nmap jq ffmpeg maven tree \
+	sudo apt -y install exfatprogs unrar curl vim htop tmux git nmap jq ffmpeg maven tree \
 	  shellcheck mpv qnapi qbittorrent xclip gufw newsboat flameshot python-is-python3 filezilla
 	@github-install.sh yt-dlp yt-dlp
 
@@ -27,3 +27,4 @@ update-system:
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt dist-upgrade -f
+	sudo snap refresh
