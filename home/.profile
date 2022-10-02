@@ -35,4 +35,4 @@ else
 fi
 
 export WALLPAPER=$HOME/.local/share/bg
-#changeWallpaper
+changeWallpaper

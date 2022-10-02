@@ -1,5 +1,14 @@
 #!/bin/bash
 
+set -euo pipefail
+
 wallpaper="$(find "$(readlink -f "/home/alex/Pictures/wallpapers")" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)"
 ln -sf "$wallpaper" "$WALLPAPER"
-xwallpaper --stretch "$WALLPAPER"
+modes=(
+  picture-uri # light mode
+  picture-uri-dark # dark mode
+)
+
+for mode in "${modes[@]}"; do
+  gsettings set org.gnome.desktop.background "$mode" "file://$WALLPAPER"
+done
