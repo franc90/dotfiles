@@ -27,4 +27,3 @@ update-system:
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt dist-upgrade -f
-	sudo snap refresh

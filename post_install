@@ -19,6 +19,7 @@ You should probably install too:
     * make sure version 1.6.0 (not in debian buster) is available otherwise:
     * install from github https://github.com/dunst-project/dunst
 * Simplenote:      https://github.com/Automattic/simplenote-electron/releases/
+    * can't start? https://github.com/Automattic/simplenote-electron/issues/3096
 * Nordvpn:         https://nordvpn.com/pl/download/linux/
 * Sublime Text:    https://www.sublimetext.com/docs/3/linux_repositories.html#apt
     * PackageCtrl: https://packagecontrol.io/installation#st3
