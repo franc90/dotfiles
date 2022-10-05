@@ -34,5 +34,12 @@ else
     export PATH=$NODEJS_HOME/bin:$PATH
 fi
 
+export GRADLE_HOME=/opt/gradle/current
+if [ ! -d "$GRADLE_HOME/bin" ]; then
+    echo "WARN: $GRADLE_HOME/bin not found. Create symlink to current gradle's bin."
+else
+    export PATH=$GRADLE_HOME/bin:$PATH
+fi
+
 export WALLPAPER=$HOME/.local/share/bg
 changeWallpaper
