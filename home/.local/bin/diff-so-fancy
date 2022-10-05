@@ -336,7 +336,7 @@ unshift @INC, bless \%fatpacked, $class;
   } # END OF FATPACK CODE
 
 
-my $VERSION = "1.4.2";
+my $VERSION = "1.4.3";
 
 #################################################################################
 
