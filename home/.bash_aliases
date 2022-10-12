@@ -16,8 +16,8 @@ alias open="xdg-open"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 alias shutdown='sudo shutdown now'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
+#alias poweroff='sudo poweroff'
+#alias reboot='sudo reboot'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
