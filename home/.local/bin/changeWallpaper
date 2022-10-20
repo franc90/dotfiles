@@ -9,6 +9,10 @@ modes=(
   picture-uri-dark # dark mode
 )
 
+# default
+#gsettings set org.gnome.desktop.background picture-options "zoom"
+gsettings set org.gnome.desktop.background picture-options "stretched"
+
 for mode in "${modes[@]}"; do
   gsettings set org.gnome.desktop.background "$mode" "file://$WALLPAPER"
 done
