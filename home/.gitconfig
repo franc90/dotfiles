@@ -16,7 +16,7 @@
   rebase = false
 
 [help]
-  autocorrect = 1 #fucking magic!
+  autocorrect = 1
 
 [fetch]
   prune = true
