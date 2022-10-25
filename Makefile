@@ -20,6 +20,7 @@ install-apps: update-system
 	is-executable.sh stow || sudo apt -y install stow
 	sudo apt -y install exfatprogs unrar curl vim htop tmux git nmap jq ffmpeg maven tree \
 	  shellcheck mpv qnapi qbittorrent xclip gufw newsboat flameshot python-is-python3 filezilla
+	flatpak update -y
 	@github-install.sh yt-dlp yt-dlp
 
 update-system:
