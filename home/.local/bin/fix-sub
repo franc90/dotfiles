@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+[ -n "${1-}" ] || { echo "no filename"; exit 1;}
+FILENAME="$1"
+
+sed -i 's/ď»ż//' "$FILENAME"
+sed -i 's/Ä…/ą/g' "$FILENAME"
+sed -i 's/Ä‡/ć/g' "$FILENAME"
+sed -i 's/Ä†/Ć/g' "$FILENAME"
+sed -i 's/Ä™/ę/g' "$FILENAME"
+sed -i 's/Ĺ‚/ł/g' "$FILENAME"
+sed -i $'s/Ĺ\u0081/Ł/g' "$FILENAME"
+sed -i 's/Ĺ›/ś/g' "$FILENAME"
+sed -i 's/Ĺš/Ś/g' "$FILENAME"
+sed -i 's/Ĺ„/ń/g' "$FILENAME"
+sed -i 's/Ăł/ó/g' "$FILENAME"
+sed -i 's/Ĺş/ź/g' "$FILENAME"
+sed -i 's/Ĺą/Ź/g' "$FILENAME"
+sed -i 's/ĹĽ/ż/g' "$FILENAME"
+sed -i 's/Ĺ»/Ż/g' "$FILENAME"
