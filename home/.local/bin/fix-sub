@@ -22,3 +22,11 @@ sed -i 's/Ĺş/ź/g' "$FILENAME"
 sed -i 's/Ĺą/Ź/g' "$FILENAME"
 sed -i 's/ĹĽ/ż/g' "$FILENAME"
 sed -i 's/Ĺ»/Ż/g' "$FILENAME"
+
+
+missed_chars=$(egrep -e "Ä|Ă|Ĺ" "$FILENAME")
+count=$(echo "$missed_chars" | wc -l)
+if (( $count > 0 )); then
+	echo "WARNING!!! Not all characters were fixed!"
+	echo "$missed_chars" | head
+fi
