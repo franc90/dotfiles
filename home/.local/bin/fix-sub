@@ -12,19 +12,29 @@ sed -i 's/Ä…/ą/g' "$FILENAME"
 sed -i 's/Ä‡/ć/g' "$FILENAME"
 sed -i 's/Ä†/Ć/g' "$FILENAME"
 sed -i 's/Ä™/ę/g' "$FILENAME"
+sed -i 's/Ä/Ę/g' "$FILENAME"
 sed -i 's/Ĺ‚/ł/g' "$FILENAME"
 sed -i $'s/Ĺ\u0081/Ł/g' "$FILENAME"
 sed -i 's/Ĺ›/ś/g' "$FILENAME"
 sed -i 's/Ĺš/Ś/g' "$FILENAME"
 sed -i 's/Ĺ„/ń/g' "$FILENAME"
+sed -i 's/Ĺ/Ń/g' "$FILENAME"
 sed -i 's/Ăł/ó/g' "$FILENAME"
+sed -i 's/Ă“/Ó/g' "$FILENAME"
+sed -i 's/Ńş/ź/g' "$FILENAME"
 sed -i 's/Ĺş/ź/g' "$FILENAME"
 sed -i 's/Ĺą/Ź/g' "$FILENAME"
+sed -i 's/ŃĽ/ż/g' "$FILENAME"
+sed -i 's/Ń»/Ż/g' "$FILENAME"
 sed -i 's/ĹĽ/ż/g' "$FILENAME"
 sed -i 's/Ĺ»/Ż/g' "$FILENAME"
+sed -i 's/â€ž/"/g' "$FILENAME"
+sed -i 's/â€ť/"/g' "$FILENAME"
+sed -i 's/Ă©/é/g' "$FILENAME"
+sed -i 's/Ă¨/é/g' "$FILENAME"
+sed -i 's/Ă /à/g' "$FILENAME"
 
-
-missed_chars=$(egrep -e "Ä|Ă|Ĺ" "$FILENAME")
+missed_chars=$(egrep -e "Ä|Ă|Ĺ|Ľ|ş" "$FILENAME")
 count=$(echo "$missed_chars" | wc -l)
 if (( $count > 0 )); then
 	echo "WARNING!!! Not all characters were fixed!"
