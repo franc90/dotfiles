@@ -9,6 +9,7 @@ FILENAME="$1"
 
 sed -i 's/ď»ż//' "$FILENAME"
 sed -i 's/Ä…/ą/g' "$FILENAME"
+sed -i 's/Ä„/Ą/g' "$FILENAME"
 sed -i 's/Ä‡/ć/g' "$FILENAME"
 sed -i 's/Ä†/Ć/g' "$FILENAME"
 sed -i 's/Ä™/ę/g' "$FILENAME"
@@ -33,6 +34,7 @@ sed -i 's/â€ť/"/g' "$FILENAME"
 sed -i 's/Ă©/é/g' "$FILENAME"
 sed -i 's/Ă¨/é/g' "$FILENAME"
 sed -i 's/Ă /à/g' "$FILENAME"
+sed -i 's/â€“/-/g' "$FILENAME"
 
 missed_chars=$(egrep -e "Ä|Ă|Ĺ|Ľ|ş" "$FILENAME")
 count=$(echo "$missed_chars" | wc -l)
