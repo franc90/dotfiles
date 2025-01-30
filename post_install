@@ -20,6 +20,8 @@ You should probably install too:
     * install from github https://github.com/dunst-project/dunst
 * Simplenote:      https://github.com/Automattic/simplenote-electron/releases/
     * can't start? https://github.com/Automattic/simplenote-electron/issues/3096
+* Obsidian:        https://obsidian.md/
+    * from flatpack: flatpak install md.obsidian.Obsidian
 * Nordvpn:         https://nordvpn.com/pl/download/linux/
 * Sublime Text:    https://www.sublimetext.com/docs/3/linux_repositories.html#apt
     * PackageCtrl: https://packagecontrol.io/installation#st3
