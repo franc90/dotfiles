@@ -18,6 +18,7 @@ fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # set PATH so it includes user's private bin if it exists
@@ -28,11 +29,7 @@ export RUSTUP_HOME=$XDG_CONFIG_HOME/rustup
 [ -d "$CARGO_HOME/bin" ] && PATH="$PATH:$CARGO_HOME/bin"
 
 export NODEJS_HOME=/opt/node
-if [ ! -d "$NODEJS_HOME/bin" ]; then
-    echo "WARN: $NODEJS_HOME/bin not found. Create symlink to current node's bin."
-else
-    export PATH=$NODEJS_HOME/bin:$PATH
-fi
+[ -d "$NODEJS_HOME/bin" ] && PATH=$NODEJS_HOME/bin:$PATH
 
 export GRADLE_HOME=/opt/gradle/current
 if [ ! -d "$GRADLE_HOME/bin" ]; then
