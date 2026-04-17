@@ -18,7 +18,7 @@ install: install-apps
 	create-links.sh fonts /usr/local/share/fonts true && fc-cache -fv
 	create-links.sh bin /usr/local/bin true
 	@log.sh "Configuring desktop:"
-	configure-alacritty.sh
+	configure-keybindings.sh
 	@cat post_install
 
 install-apps: update-system
