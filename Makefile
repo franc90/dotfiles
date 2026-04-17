@@ -4,8 +4,8 @@ PATH := $(DOTFILES_DIR)/makefile_scripts:$(PATH)
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
-	maven tree ShellCheck mpv qbittorrent xclip firewall-config \
-	flameshot yt-dlp bat nnn fzf prettyping alacritty filezilla \
+	maven tree ShellCheck mpv qbittorrent xclip firewall-config flameshot \
+	yt-dlp bat nnn fzf prettyping ripgrep fd-find alacritty filezilla \
 	flatpak gimp perl-Image-ExifTool
 
 .PHONY: install
