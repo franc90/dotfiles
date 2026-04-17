@@ -3,6 +3,9 @@ DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 PATH := $(DOTFILES_DIR)/makefile_scripts:$(PATH)
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
+DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
+	ffmpeg-free maven tree ShellCheck mpv qbittorrent xclip firewall-config \
+	flameshot filezilla yt-dlp
 
 .PHONY: install
 
@@ -17,14 +20,8 @@ install: install-apps
 
 install-apps: update-system
 	@log.sh "Installing apps:"
-	is-executable.sh stow || sudo apt -y install stow
-	sudo apt -y install exfatprogs unrar curl vim htop tmux git nmap jq ffmpeg maven tree \
-	  shellcheck mpv qnapi qbittorrent xclip gufw flameshot filezilla
-	flatpak update -y
-	@github-install.sh yt-dlp yt-dlp
+	sudo dnf install -y $(DNF_PACKAGES)
 
 update-system:
 	@log.sh "Updating system:"
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt dist-upgrade -f
+	sudo dnf upgrade --refresh -y

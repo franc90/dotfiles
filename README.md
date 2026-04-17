@@ -1,14 +1,19 @@
 # Personal dotfiles
 
 ### Installation
+Prerequisites:
+* `git`
+* `make`
+
 Executing:
-```
+``` 
     git clone https://github.com/franc90/dotfiles.git
     cd dotfiles
-    git checkout debian
     make
 ```
 should do, but it's not tested regularly, so YMMV.
+
+This repo is intended for Fedora Workstation and uses `dnf`.
 
 ### A little bit of paranoia
 
