@@ -5,18 +5,8 @@ You should probably install too:
     * rustup       https://rustup.rs/
     * for bash completion run: `rustup completions bash > ~/.local/share/bash-completion/completions/rustup`
     * and then: `rustup completions bash cargo >> ~/.local/share/bash-completion/completions/cargo`
-* Alacritty:       https://github.com/alacritty/alacritty
-* dunst
-    * dunst 1.6.0 (esp. dunstify) is required for proper sound volume and brightness change notifications
-        use https://github.com/dunst-project/dunst
-    * install from package manager if recent enough, otherwise from GitHub https://github.com/dunst-project/dunst
 * Simplenote:      https://github.com/Automattic/simplenote-electron/releases/
     * can't start? https://github.com/Automattic/simplenote-electron/issues/3096
-* Obsidian:        https://obsidian.md/
-    * prefer a native package if available for your distro
-* nnn:             https://github.com/jarun/nnn/releases
-* bat:             https://github.com/sharkdp/bat
-* ExifTool:        https://exiftool.org/
 * mpv:
     mpv may not suspend GNOME's Power Saving Settings if using Wayland resulting in screen saver turning off the monitor during video playback.
     A workaround is to add `gnome-session-inhibit` to the beginning of the `Exec=` line in `/usr/share/applications/mpv.desktop`.

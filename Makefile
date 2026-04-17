@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
 	ffmpeg maven tree ShellCheck mpv qbittorrent xclip firewall-config \
-	flameshot filezilla yt-dlp gimp
+	flameshot filezilla yt-dlp alacritty bat nnn flatpak gimp perl-Image-ExifTool
 
 .PHONY: install
 
@@ -21,6 +21,8 @@ install: install-apps
 install-apps: update-system
 	@log.sh "Installing apps:"
 	sudo dnf install -y $(DNF_PACKAGES)
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	flatpak install -y flathub md.obsidian.Obsidian
 
 update-system:
 	@log.sh "Updating system:"
