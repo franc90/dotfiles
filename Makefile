@@ -4,7 +4,7 @@ PATH := $(DOTFILES_DIR)/makefile_scripts:$(PATH)
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
-	ffmpeg maven tree ShellCheck mpv qbittorrent xclip firewall-config \
+	maven tree ShellCheck mpv qbittorrent xclip firewall-config \
 	flameshot yt-dlp bat nnn fzf prettyping alacritty filezilla \
 	flatpak gimp perl-Image-ExifTool
 
@@ -22,6 +22,11 @@ install: install-apps
 install-apps: update-system
 	@log.sh "Installing apps:"
 	sudo dnf install -y $(DNF_PACKAGES)
+	if rpm -q ffmpeg-free >/dev/null 2>&1; then \
+		sudo dnf swap -y --allowerasing ffmpeg-free ffmpeg; \
+	else \
+		sudo dnf install -y ffmpeg; \
+	fi
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y flathub md.obsidian.Obsidian
 
