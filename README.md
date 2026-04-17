@@ -28,6 +28,7 @@ should do, but it's not tested regularly, so YMMV.
 
 This repo is intended for Fedora Workstation and uses `dnf`.
 It also installs Obsidian from Flathub via `flatpak`.
+It configures GNOME so `Super+Return` launches Alacritty.
 
 ### A little bit of paranoia
 
