@@ -5,7 +5,8 @@ export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
 	ffmpeg maven tree ShellCheck mpv qbittorrent xclip firewall-config \
-	flameshot filezilla yt-dlp alacritty bat nnn flatpak gimp perl-Image-ExifTool
+	flameshot yt-dlp bat nnn fzf prettyping alacritty filezilla \
+	flatpak gimp perl-Image-ExifTool
 
 .PHONY: install
 

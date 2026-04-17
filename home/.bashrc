@@ -94,5 +94,6 @@ export NNN_PLUG='v:imgview'
 export MANPAGER="less -FiRswX"
 export EDITOR='vim'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /etc/bash_completion.d/fzf ] && source /etc/bash_completion.d/fzf
+[ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
