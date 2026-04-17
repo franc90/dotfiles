@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
 	ffmpeg maven tree ShellCheck mpv qbittorrent xclip firewall-config \
-	flameshot filezilla yt-dlp
+	flameshot filezilla yt-dlp gimp
 
 .PHONY: install
 
