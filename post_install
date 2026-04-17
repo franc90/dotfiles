@@ -12,7 +12,11 @@ You should probably install too:
     A workaround is to add `gnome-session-inhibit` to the beginning of the `Exec=` line in `/usr/share/applications/mpv.desktop`.
 
 On Fedora, configure `firewalld` / `firewall-config` instead of `ufw`.
-`Super+Return` is configured to launch Alacritty and `Super+b` to launch Firefox.
+
+Custom shortcuts:
+- `Super+Return` launches Alacritty
+- `Super+b` launches Firefox
+- `Super+f` opens Nautilus in the home folder.
 
 More at reddit: https://www.reddit.com/r/programming/comments/9zo70o/nnn_v21_released_a_terminal_file_manager_for
 and in Luke's video: https://www.youtube.com/watch?v=U2n5aGqou9E
