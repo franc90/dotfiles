@@ -4,6 +4,19 @@
 Prerequisites:
 * `git`
 * `make`
+* RPM Fusion enabled manually before running `make`
+
+Enable RPM Fusion first:
+```
+    sudo dnf install \
+      https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+
+Optional:
+```
+    sudo dnf install \
+      https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
 
 Executing:
 ``` 
