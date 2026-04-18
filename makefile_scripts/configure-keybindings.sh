@@ -6,6 +6,7 @@ readonly KEYBINDINGS_SCHEMA="org.gnome.settings-daemon.plugins.media-keys"
 readonly ALACRITTY_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/alacritty/"
 readonly FIREFOX_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/firefox/"
 readonly FILES_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/files/"
+readonly WALLPAPER_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/wallpaper/"
 
 if ! command -v gsettings >/dev/null 2>&1; then
   echo "Skipping GNOME shortcut configuration: gsettings not found."
@@ -48,8 +49,10 @@ set_binding() {
 updated_bindings="$(add_binding_path "$current_bindings" "$ALACRITTY_PATH")"
 updated_bindings="$(add_binding_path "$updated_bindings" "$FIREFOX_PATH")"
 updated_bindings="$(add_binding_path "$updated_bindings" "$FILES_PATH")"
+updated_bindings="$(add_binding_path "$updated_bindings" "$WALLPAPER_PATH")"
 gsettings set "$KEYBINDINGS_SCHEMA" custom-keybindings "$updated_bindings"
 
 set_binding "$ALACRITTY_PATH" "Alacritty" "alacritty" "<Super>Return"
 set_binding "$FIREFOX_PATH" "Firefox" "firefox" "<Super>b"
 set_binding "$FILES_PATH" "Files" "nautilus --new-window \"$HOME\"" "<Super>f"
+set_binding "$WALLPAPER_PATH" "Change wallpaper" "$HOME/.local/bin/changeWallpaper" "<Super>w"

@@ -32,6 +32,7 @@ Custom shortcuts:
 - `Super+Return` launches Alacritty
 - `Super+b` launches Firefox
 - `Super+f` opens Nautilus in the home folder.
+- `Super+w` changes wallpaper.
 
 ### A little bit of paranoia
 

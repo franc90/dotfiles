@@ -1,9 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
-wallpaper="$(find "$(readlink -f "/home/alex/Pictures/wallpapers")" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)"
-ln -sf "$wallpaper" "$WALLPAPER"
+readonly WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+readonly WALLPAPER_LINK="${WALLPAPER:-$HOME/.local/share/bg}"
+
+if [[ ! -d "$WALLPAPER_DIR" ]]; then
+  exit 0
+fi
+
+wallpaper="$(
+  find "$(readlink -f "$WALLPAPER_DIR")" -type f -iregex '.*\.\(jpg\|jpeg\|png\|gif\)$' | shuf -n 1
+)"
+
+if [[ -z "$wallpaper" ]]; then
+  exit 0
+fi
+
+mkdir -p "$(dirname "$WALLPAPER_LINK")"
+ln -sf "$wallpaper" "$WALLPAPER_LINK"
 modes=(
   picture-uri # light mode
   picture-uri-dark # dark mode
@@ -14,5 +29,5 @@ modes=(
 gsettings set org.gnome.desktop.background picture-options "stretched"
 
 for mode in "${modes[@]}"; do
-  gsettings set org.gnome.desktop.background "$mode" "file://$WALLPAPER"
+  gsettings set org.gnome.desktop.background "$mode" "file://$WALLPAPER_LINK"
 done
