@@ -20,6 +20,7 @@ install: install-apps
 	@log.sh "Configuring desktop:"
 	configure-keybindings.sh
 	gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+	gsettings set org.gnome.desktop.wm.preferences resize-with-right-button "true"
 	@cat post_install
 
 install-apps: update-system
