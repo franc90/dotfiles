@@ -6,7 +6,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
 	maven tree ShellCheck mpv qbittorrent xclip firewall-config flameshot \
 	yt-dlp bat nnn fzf prettyping ripgrep fd-find alacritty filezilla \
-	flatpak gimp perl-Image-ExifTool calibre gnome-tweaks papirus-icon-theme
+	flatpak gimp perl-Image-ExifTool calibre gnome-tweaks pop-icon-theme
 
 .PHONY: install
 
@@ -19,7 +19,7 @@ install: install-apps
 	create-links.sh bin /usr/local/bin true
 	@log.sh "Configuring desktop:"
 	configure-keybindings.sh
-	gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+	gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 	@cat post_install
 
 install-apps: update-system
