@@ -6,7 +6,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 DNF_PACKAGES := stow exfatprogs unrar curl vim-enhanced htop tmux git nmap jq \
 	maven tree ShellCheck mpv qbittorrent xclip firewall-config flameshot \
 	yt-dlp bat nnn fzf prettyping ripgrep fd-find alacritty filezilla \
-	flatpak gimp perl-Image-ExifTool gnome-tweaks papirus-icon-theme
+	flatpak gimp perl-Image-ExifTool calibre gnome-tweaks papirus-icon-theme
 
 .PHONY: install
 
