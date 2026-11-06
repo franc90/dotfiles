@@ -97,3 +97,7 @@ export EDITOR='vim'
 [ -f /etc/bash_completion.d/fzf ] && source /etc/bash_completion.d/fzf
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
